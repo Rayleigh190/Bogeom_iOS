@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k3V-9L-VM7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,20 +9,154 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--메인 화면-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0g-6O-BWs">
+                                <rect key="frame" x="72" y="159" width="270" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="촬영하기"/>
+                                <connections>
+                                    <segue destination="lAE-fF-Lgg" kind="show" identifier="captureMenuButton" id="qqj-wc-ntW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="메인 화면" id="T5d-8J-TeF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="-27"/>
+            <point key="canvasLocation" x="955.07246376811599" y="-27.455357142857142"/>
+        </scene>
+        <!--Capture View Controller-->
+        <scene sceneID="8ek-Wi-8Xm">
+            <objects>
+                <viewController id="lAE-fF-Lgg" customClass="CaptureViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vHu-BV-ah3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHR-gV-RZC" customClass="PreviewView" customModule="BG_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qc-gW-Xom" userLabel="BlurBG View">
+                                <rect key="frame" x="164.5" y="747" width="85" height="85"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YmX-4m-9ze">
+                                    <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oTT-Kw-zgV">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xkN-wl-UWO">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR9-Lg-HeD" userLabel="Capture Button">
+                                <rect key="frame" x="174.5" y="757" width="65" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="6x3-7i-3jq"/>
+                                    <constraint firstAttribute="height" constant="65" id="bd9-id-URr"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="capturePhoto:" destination="lAE-fF-Lgg" eventType="touchUpInside" id="zL0-9P-TIg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KoJ-yj-1sO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mHR-gV-RZC" firstAttribute="leading" secondItem="KoJ-yj-1sO" secondAttribute="leading" id="1MD-Sy-6DV"/>
+                            <constraint firstItem="5Qc-gW-Xom" firstAttribute="centerY" secondItem="MR9-Lg-HeD" secondAttribute="centerY" id="3M9-B4-buy"/>
+                            <constraint firstItem="5Qc-gW-Xom" firstAttribute="centerX" secondItem="MR9-Lg-HeD" secondAttribute="centerX" id="G0h-Jq-mcd"/>
+                            <constraint firstItem="mHR-gV-RZC" firstAttribute="bottom" secondItem="KoJ-yj-1sO" secondAttribute="bottom" constant="34" id="H2g-7s-ayG"/>
+                            <constraint firstItem="5Qc-gW-Xom" firstAttribute="height" secondItem="MR9-Lg-HeD" secondAttribute="height" constant="20" id="P7W-IZ-I6c"/>
+                            <constraint firstItem="KoJ-yj-1sO" firstAttribute="bottom" secondItem="MR9-Lg-HeD" secondAttribute="bottom" constant="40" id="SSf-A4-fpH"/>
+                            <constraint firstItem="KoJ-yj-1sO" firstAttribute="trailing" secondItem="mHR-gV-RZC" secondAttribute="trailing" id="V7r-Ue-YqE"/>
+                            <constraint firstItem="5Qc-gW-Xom" firstAttribute="width" secondItem="MR9-Lg-HeD" secondAttribute="width" constant="20" id="VaM-57-WDI"/>
+                            <constraint firstItem="MR9-Lg-HeD" firstAttribute="centerX" secondItem="KoJ-yj-1sO" secondAttribute="centerX" id="d5G-vz-d36"/>
+                            <constraint firstItem="KoJ-yj-1sO" firstAttribute="top" secondItem="mHR-gV-RZC" secondAttribute="top" constant="92" id="nRh-gO-xnm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PGX-px-zVl"/>
+                    <connections>
+                        <outlet property="blurBGView" destination="5Qc-gW-Xom" id="kmd-Zp-nBv"/>
+                        <outlet property="captureButton" destination="MR9-Lg-HeD" id="PXZ-UF-iUd"/>
+                        <outlet property="previewView" destination="mHR-gV-RZC" id="BcC-vw-x1K"/>
+                        <segue destination="y5h-Hi-mQq" kind="show" identifier="showSearch" id="wFW-fL-7yR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAg-u2-Rqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.8695652173915" y="-27.455357142857142"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="FEp-za-B09">
+            <objects>
+                <viewController id="y5h-Hi-mQq" customClass="SearchViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9kD-6e-OhE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-ce-YFy">
+                                <rect key="frame" x="55" y="305" width="304" height="304"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PO4-ce-YFy" secondAttribute="height" multiplier="1:1" id="dfm-L0-cmb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Z9x-O9-3hB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PO4-ce-YFy" firstAttribute="top" secondItem="Z9x-O9-3hB" secondAttribute="top" constant="213" id="3GH-yZ-iQ5"/>
+                            <constraint firstItem="Z9x-O9-3hB" firstAttribute="trailing" secondItem="PO4-ce-YFy" secondAttribute="trailing" constant="55" id="7da-op-Em2"/>
+                            <constraint firstItem="PO4-ce-YFy" firstAttribute="leading" secondItem="Z9x-O9-3hB" secondAttribute="leading" constant="55" id="guH-x7-e7j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4ed-Jt-Sce"/>
+                    <connections>
+                        <outlet property="imgView" destination="PO4-ce-YFy" id="eCk-EG-GUP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-kw-xxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2776.811594202899" y="-27.455357142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ah0-HK-ZBG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k3V-9L-VM7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wo6-Ir-ulY">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wEs-DT-ClQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIZ-Rg-zpB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="-27.455357142857142"/>
         </scene>
     </scenes>
     <resources>

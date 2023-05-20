@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>보검 uses the camera to take photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>보검 saves captured photos your photo library</string>
 </dict>
 </plist>

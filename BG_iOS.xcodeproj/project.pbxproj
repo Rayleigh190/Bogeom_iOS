@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3112A17A753003E8C3C /* CaptureViewController.swift */; };
+		F166C3142A17C91A003E8C3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3132A17C91A003E8C3C /* Utils.swift */; };
+		F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F166C3152A17C975003E8C3C /* yolov5s.mlmodel */; };
+		F166C3182A1871F4003E8C3C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3172A1871F4003E8C3C /* PreviewView.swift */; };
+		F166C31A2A18BE89003E8C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3192A18BE89003E8C3C /* SearchViewController.swift */; };
 		F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CDA8B2A17A03F002A3FAC /* AppDelegate.swift */; };
 		F18CDA8E2A17A03F002A3FAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CDA8D2A17A03F002A3FAC /* SceneDelegate.swift */; };
 		F18CDA902A17A03F002A3FAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18CDA8F2A17A03F002A3FAC /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F166C3112A17A753003E8C3C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		F166C3132A17C91A003E8C3C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F166C3152A17C975003E8C3C /* yolov5s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov5s.mlmodel; sourceTree = "<group>"; };
+		F166C3172A1871F4003E8C3C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		F166C3192A18BE89003E8C3C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F18CDA882A17A03F002A3FAC /* BG_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BG_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18CDA8B2A17A03F002A3FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18CDA8D2A17A03F002A3FAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,10 +69,15 @@
 				F18CDA8B2A17A03F002A3FAC /* AppDelegate.swift */,
 				F18CDA8D2A17A03F002A3FAC /* SceneDelegate.swift */,
 				F18CDA8F2A17A03F002A3FAC /* ViewController.swift */,
+				F166C3112A17A753003E8C3C /* CaptureViewController.swift */,
+				F166C3192A18BE89003E8C3C /* SearchViewController.swift */,
 				F18CDA912A17A03F002A3FAC /* Main.storyboard */,
 				F18CDA942A17A040002A3FAC /* Assets.xcassets */,
 				F18CDA962A17A040002A3FAC /* LaunchScreen.storyboard */,
+				F166C3152A17C975003E8C3C /* yolov5s.mlmodel */,
 				F18CDA992A17A040002A3FAC /* Info.plist */,
+				F166C3132A17C91A003E8C3C /* Utils.swift */,
+				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
 			);
 			path = BG_iOS;
 			sourceTree = "<group>";
@@ -138,8 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F166C3142A17C91A003E8C3C /* Utils.swift in Sources */,
 				F18CDA902A17A03F002A3FAC /* ViewController.swift in Sources */,
+				F166C31A2A18BE89003E8C3C /* SearchViewController.swift in Sources */,
+				F166C3182A1871F4003E8C3C /* PreviewView.swift in Sources */,
+				F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */,
 				F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */,
+				F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */,
 				F18CDA8E2A17A03F002A3FAC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
