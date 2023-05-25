@@ -22,6 +22,7 @@ class SearchViewController: UIViewController {
     func updateUI() {
         imgView.image = image
         imgView.transform = imgView.transform.rotated(by: .pi/2)
+        self.navigationController?.navigationBar.tintColor = .black
     }
 
     

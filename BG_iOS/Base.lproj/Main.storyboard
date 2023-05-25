@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--메인 화면-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0g-6O-BWs">
-                                <rect key="frame" x="72" y="159" width="270" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-bK-5Az">
+                                <rect key="frame" x="0.0" y="92" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wKJ-pZ-aEs"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0g-6O-BWs">
+                                <rect key="frame" x="45" y="193" width="324" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y0g-6O-BWs" secondAttribute="height" multiplier="7:3" id="nVO-y4-cow"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="촬영하기"/>
+                                <buttonConfiguration key="configuration" style="filled" title="가격표 사진 찍기" cornerStyle="small">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="lAE-fF-Lgg" kind="show" identifier="captureMenuButton" id="qqj-wc-ntW"/>
                                 </connections>
@@ -29,8 +40,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y0g-6O-BWs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="1Pz-l8-MWD"/>
+                            <constraint firstItem="Y0g-6O-BWs" firstAttribute="centerX" secondItem="8ed-bK-5Az" secondAttribute="centerX" id="Bhm-O9-6dN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8ed-bK-5Az" secondAttribute="trailing" id="OJc-2P-fig"/>
+                            <constraint firstItem="8ed-bK-5Az" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h2f-Hx-1ne"/>
+                            <constraint firstItem="8ed-bK-5Az" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m2k-qM-bAQ"/>
+                            <constraint firstItem="Y0g-6O-BWs" firstAttribute="top" secondItem="8ed-bK-5Az" secondAttribute="bottom" constant="45" id="uQO-nF-J5k"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="메인 화면" id="T5d-8J-TeF"/>
+                    <navigationItem key="navigationItem" id="T5d-8J-TeF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,6 +67,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격표를 촬영해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gao-Ee-GJM">
+                                <rect key="frame" x="115.5" y="202" width="183" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qc-gW-Xom" userLabel="BlurBG View">
                                 <rect key="frame" x="164.5" y="747" width="85" height="85"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YmX-4m-9ze">
@@ -86,17 +111,18 @@
                         <constraints>
                             <constraint firstItem="mHR-gV-RZC" firstAttribute="leading" secondItem="KoJ-yj-1sO" secondAttribute="leading" id="1MD-Sy-6DV"/>
                             <constraint firstItem="5Qc-gW-Xom" firstAttribute="centerY" secondItem="MR9-Lg-HeD" secondAttribute="centerY" id="3M9-B4-buy"/>
+                            <constraint firstItem="Gao-Ee-GJM" firstAttribute="centerX" secondItem="KoJ-yj-1sO" secondAttribute="centerX" id="5lW-d8-iwD"/>
                             <constraint firstItem="5Qc-gW-Xom" firstAttribute="centerX" secondItem="MR9-Lg-HeD" secondAttribute="centerX" id="G0h-Jq-mcd"/>
                             <constraint firstItem="mHR-gV-RZC" firstAttribute="bottom" secondItem="KoJ-yj-1sO" secondAttribute="bottom" constant="34" id="H2g-7s-ayG"/>
                             <constraint firstItem="5Qc-gW-Xom" firstAttribute="height" secondItem="MR9-Lg-HeD" secondAttribute="height" constant="20" id="P7W-IZ-I6c"/>
                             <constraint firstItem="KoJ-yj-1sO" firstAttribute="bottom" secondItem="MR9-Lg-HeD" secondAttribute="bottom" constant="40" id="SSf-A4-fpH"/>
                             <constraint firstItem="KoJ-yj-1sO" firstAttribute="trailing" secondItem="mHR-gV-RZC" secondAttribute="trailing" id="V7r-Ue-YqE"/>
                             <constraint firstItem="5Qc-gW-Xom" firstAttribute="width" secondItem="MR9-Lg-HeD" secondAttribute="width" constant="20" id="VaM-57-WDI"/>
+                            <constraint firstItem="Gao-Ee-GJM" firstAttribute="top" secondItem="KoJ-yj-1sO" secondAttribute="top" constant="110" id="Z3W-WT-2A8"/>
                             <constraint firstItem="MR9-Lg-HeD" firstAttribute="centerX" secondItem="KoJ-yj-1sO" secondAttribute="centerX" id="d5G-vz-d36"/>
                             <constraint firstItem="KoJ-yj-1sO" firstAttribute="top" secondItem="mHR-gV-RZC" secondAttribute="top" constant="92" id="nRh-gO-xnm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PGX-px-zVl"/>
                     <connections>
                         <outlet property="blurBGView" destination="5Qc-gW-Xom" id="kmd-Zp-nBv"/>
                         <outlet property="captureButton" destination="MR9-Lg-HeD" id="PXZ-UF-iUd"/>
@@ -117,18 +143,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-ce-YFy">
-                                <rect key="frame" x="55" y="305" width="304" height="304"/>
+                                <rect key="frame" x="55" y="212" width="304" height="304"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="PO4-ce-YFy" secondAttribute="height" multiplier="1:1" id="dfm-L0-cmb"/>
+                                    <constraint firstAttribute="width" secondItem="PO4-ce-YFy" secondAttribute="height" multiplier="1:1" id="tmI-zk-eUO"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z9x-O9-3hB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PO4-ce-YFy" firstAttribute="top" secondItem="Z9x-O9-3hB" secondAttribute="top" constant="213" id="3GH-yZ-iQ5"/>
-                            <constraint firstItem="Z9x-O9-3hB" firstAttribute="trailing" secondItem="PO4-ce-YFy" secondAttribute="trailing" constant="55" id="7da-op-Em2"/>
-                            <constraint firstItem="PO4-ce-YFy" firstAttribute="leading" secondItem="Z9x-O9-3hB" secondAttribute="leading" constant="55" id="guH-x7-e7j"/>
+                            <constraint firstItem="PO4-ce-YFy" firstAttribute="centerX" secondItem="Z9x-O9-3hB" secondAttribute="centerX" id="o0g-sB-i2I"/>
+                            <constraint firstItem="PO4-ce-YFy" firstAttribute="leading" secondItem="Z9x-O9-3hB" secondAttribute="leading" constant="55" id="o9U-vW-Crw"/>
+                            <constraint firstItem="PO4-ce-YFy" firstAttribute="top" secondItem="Z9x-O9-3hB" secondAttribute="top" constant="120" id="wnO-6n-9U7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4ed-Jt-Sce"/>

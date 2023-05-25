@@ -12,6 +12,7 @@ import Photos
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     var objectBounds: CGRect!
+    var outputImage : UIImage!
     
     // Capture
     var bufferSize: CGSize = .zero
@@ -27,16 +28,16 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
     private var detectionLayer: CALayer! = nil
     
-    var outputImage : UIImage!
     
     // Vision
     private var requests = [VNRequest]()
     
-
+    var count:Int = 0
     
     // Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        count += 1
         setupCapture()
         setupOutput()
         setupLayers()
@@ -46,31 +47,50 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                     self.captureSession.startRunning()
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        count += 1
+        if count > 2 { // nav bar back을 통해 뒤로 이동해도 카메라 세션이 다시 시작 되게 함
+            setupCapture()
+            setupOutput()
+            setupLayers()
+            setupUI()
+            try? setupVision()
+            DispatchQueue.global(qos: .background).async {
+                        self.captureSession.startRunning()
+            }
+        }
+    }
     
     func setupUI() {
         captureButton.layer.cornerRadius = captureButton.bounds.height/2
         captureButton.layer.masksToBounds = true
         blurBGView.layer.cornerRadius = blurBGView.bounds.height/2
         blurBGView.layer.masksToBounds = true
+        let chevronLeft = UIImage(systemName: "chevron.left")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: chevronLeft, style: .plain, target: self, action: #selector(CaptureViewController.tapToBack))
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc func tapToBack() {
+        if captureSession.isRunning {
+            DispatchQueue.global().async {
+                self.captureSession.stopRunning()
+            }
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func capturePhoto(_ sender: UIButton) {
-        print("찰칵1")
         // TODO: photoOutput의 capturePhoto 메소드
         // orientation
         // photooutput
         
         let videoPreviewLayerOrientation = self.previewLayer.connection?.videoOrientation
-        print("찰칵2")
         DispatchQueue.global(qos: .background).async {
-            print("찰칵3")
             let connection = self.photoOutput.connection(with: .video)
-            print("찰칵4")
             connection?.videoOrientation = videoPreviewLayerOrientation!
             let setting = AVCapturePhotoSettings()
-            print("찰칵5")
             self.photoOutput.capturePhoto(with: setting, delegate: self)
-            print("찰칵6")
         }
     }
     
@@ -85,7 +105,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //                    DispatchQueue.main.async {
 //                        self.photoLibraryButton.setImage(image, for: .normal)
 //                    }
-                    print("저장")
                     print(image.size)
                 })
             } else {
@@ -306,5 +325,10 @@ extension CaptureViewController: AVCapturePhotoCaptureDelegate {
         let newImg = UIImage(cgImage: cropedImg!)
         performSegue(withIdentifier: "showSearch", sender: newImg)
 //        self.savePhotoLibrary(image: image)
+        if captureSession.isRunning {
+            DispatchQueue.global().async {
+                self.captureSession.stopRunning()
+            }
+        }
     }
 }
