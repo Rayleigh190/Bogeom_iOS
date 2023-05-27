@@ -50,8 +50,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     override func viewWillAppear(_ animated: Bool) {
         count += 1
         if count > 2 { // nav bar back을 통해 뒤로 이동해도 카메라 세션이 다시 시작 되게 함
-            setupCapture()
-            setupOutput()
             setupLayers()
             setupUI()
             try? setupVision()
@@ -269,7 +267,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             
             // Rotate the bounding box into screen orientation
             let boundingBox = CGRect(origin: CGPoint(x:1.0-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height, y:objectObservation.boundingBox.origin.x), size: CGSize(width:objectObservation.boundingBox.size.height,height:objectObservation.boundingBox.size.width))
-            
+        
             objectBounds = VNImageRectForNormalizedRect(boundingBox, Int(bufferSize.width), Int(bufferSize.height))
             
             let shapeLayer = createRectLayer(objectBounds, colors[topLabelObservation.identifier]!)
@@ -292,21 +290,12 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //    }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSearch" {
             let vc = segue.destination as? SearchViewController
             if let priceImg = sender as? UIImage {
-                vc?.image = priceImg
+                vc?.cropImage = priceImg
             }
         }
     }
@@ -315,12 +304,15 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 
 
 extension CaptureViewController: AVCapturePhotoCaptureDelegate {
+    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         // TODO: capturePhoto delegate method 구현
         guard error == nil else { return }
         guard let imageData = photo.fileDataRepresentation() else { return }
         guard let image = UIImage(data: imageData) else { return }
-//        print(objectBounds)
+//        guard let cgImageSource = CGImageSourceCreateWithData(imageData as CFData, nil) else {print("실패"); return}
+//        guard let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil) else {return}
+        
         let cropedImg = image.cgImage?.cropping(to: objectBounds)
         let newImg = UIImage(cgImage: cropedImg!)
         performSegue(withIdentifier: "showSearch", sender: newImg)
