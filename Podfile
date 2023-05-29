@@ -7,5 +7,6 @@ target 'BG_iOS' do
 
   # Pods for BG_iOS
   pod 'Alamofire'
+  pod 'Kingfisher', '~> 7.0'
 
 end

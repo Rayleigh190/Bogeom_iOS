@@ -22,6 +22,7 @@
 		F1D459D02A20FFF700CDF245 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */; };
 		F1D459D22A21D30D00CDF245 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1D459D12A21D30D00CDF245 /* Secrets.plist */; };
 		F1D459D42A21D4CB00CDF245 /* SecretsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */; };
+		F1D459D62A222B4000CDF245 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459D52A222B4000CDF245 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		F1D459D12A21D30D00CDF245 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsBundle.swift; sourceTree = "<group>"; };
+		F1D459D52A222B4000CDF245 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				F18CDA992A17A040002A3FAC /* Info.plist */,
 				F1D459D12A21D30D00CDF245 /* Secrets.plist */,
 				F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */,
+				F1D459D52A222B4000CDF245 /* Model.swift */,
 			);
 			path = BG_iOS;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */,
 				F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */,
 				F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */,
+				F1D459D62A222B4000CDF245 /* Model.swift in Sources */,
 				F18CDA8E2A17A03F002A3FAC /* SceneDelegate.swift in Sources */,
 				F1D459D42A21D4CB00CDF245 /* SecretsBundle.swift in Sources */,
 			);
