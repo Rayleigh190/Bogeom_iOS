@@ -71,9 +71,9 @@ class SearchResultViewController: UIViewController {
             marketLogo1.kf.setImage(with: URL(string: (itemOnlinePrice?[0].marketLogo)!))
             marketLogo2.kf.setImage(with: URL(string: (itemOnlinePrice?[1].marketLogo)!))
             marketLogo3.kf.setImage(with: URL(string: (itemOnlinePrice?[2].marketLogo)!))
-            marketPrice1.text = "\(itemOnlinePrice![0].marketPice)원"
-            marketPrice2.text = "\(itemOnlinePrice![1].marketPice)원"
-            marketPrice3.text = "\(itemOnlinePrice![2].marketPice)원"
+            marketPrice1.text = "\(itemOnlinePrice![0].marketPrice)원"
+            marketPrice2.text = "\(itemOnlinePrice![1].marketPrice)원"
+            marketPrice3.text = "\(itemOnlinePrice![2].marketPrice)원"
             deliverFee1.text = "\(itemOnlinePrice![0].deliverFee)원"
             deliverFee2.text = "\(itemOnlinePrice![1].deliverFee)원"
             deliverFee3.text = "\(itemOnlinePrice![2].deliverFee)원"

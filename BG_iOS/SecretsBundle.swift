@@ -21,5 +21,11 @@ extension Bundle {
         guard let key = resource["TEMP_API_URL"] as? String else {fatalError("TEMP_API_URL error")}
         return key
     }
+    var MAIN_API_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["MAIN_API_URL"] as? String else {fatalError("MAIN_API_URL error")}
+        return key
+    }
     
 }

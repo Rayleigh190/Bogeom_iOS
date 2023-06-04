@@ -39,5 +39,5 @@ struct itemReview: Codable {
     }
 }
 struct itemOnlinePrice: Codable {
-    let marketName: String, marketLogo: String, marketPice: Int, marketLink: String, deliverFee: Int
+    let marketName: String, marketLogo: String, marketPrice: Int, marketLink: String, deliverFee: Int
 }

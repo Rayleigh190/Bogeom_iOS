@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
     func uploadPhoto(image: UIImage) {
         guard let imgData = image.jpegData(compressionQuality: 1) else { print("사진오류"); return}
         // [http 요청 주소 지정]
-        let url = Bundle.main.TEMP_API_URL!
+        let url = Bundle.main.MAIN_API_URL!
         // [http 요청 헤더 지정]
         let header : HTTPHeaders = [
             "Content-Type" : "multipart/form-data"
