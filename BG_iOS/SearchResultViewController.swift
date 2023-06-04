@@ -66,7 +66,21 @@ class SearchResultViewController: UIViewController {
         
         if let itemInfo = self.itemInfo, let _ = self.itemReview, let _ = self.itemOnlinePrice {
             itemImg.kf.setImage(with: URL(string: itemInfo.itemImg))
-            itemDetailImg.kf.setImage(with: URL(string: itemInfo.detailImg))
+            itemDetailImg.kf.setImage(with: URL(string: itemInfo.detailImg)){ result in
+                switch result {
+                case .success(let value):
+                    DispatchQueue.main.async {
+                        // 이미지가 로드되었을 때, 이미지의 높이에 맞게 UIImageView의 높이를 조정합니다.
+                        let imageHeight = value.image.size.height
+                        let imageWidth = value.image.size.width
+                        let ratio =  imageWidth / imageHeight
+                        let height = self.itemDetailImg.viewWidth / ratio
+                        self.itemDetailImg.heightAnchor.constraint(equalToConstant: height).isActive = true
+                    }
+                case .failure(let error):
+                    print("Image download failed: \(error)")
+                }
+            }
             itemName.text = itemInfo.itemName
             marketLogo1.kf.setImage(with: URL(string: (itemOnlinePrice?[0].marketLogo)!))
             marketLogo2.kf.setImage(with: URL(string: (itemOnlinePrice?[1].marketLogo)!))
@@ -102,16 +116,13 @@ class SearchResultViewController: UIViewController {
                                 if (s_index < reviewNumList[i]) {
                                     if let labelView = star as? UIImageView {
                                         labelView.image = UIImage(systemName: "star.fill")
-                                        
                                     }
                                 }
                             }
                         }
                         if (j==2) {
-                            print(s)
                             if let labelView = s as? UILabel {
                                 labelView.text = reviewInfoList[i][reviewNumList[i]-1]
-                                print(labelView.text!)
                             }
                         }
                     }
@@ -129,3 +140,12 @@ class SearchResultViewController: UIViewController {
 }
 
 
+extension UIView {
+    public var viewWidth: CGFloat {
+        return self.frame.size.width
+    }
+
+    public var viewHeight: CGFloat {
+        return self.frame.size.height
+    }
+}
