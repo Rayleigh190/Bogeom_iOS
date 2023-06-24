@@ -120,6 +120,7 @@ func createRectLayer(_ bounds: CGRect, _ color: [CGFloat]) -> CALayer {
     let shapeLayer = CALayer()
     shapeLayer.bounds = bounds
     shapeLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-    shapeLayer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: color)
+    shapeLayer.backgroundColor = UIColor(hue: 0.125, saturation: 0.83, brightness: 0.94, alpha: 0.5).cgColor
+    //CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: color)
     return shapeLayer
 }

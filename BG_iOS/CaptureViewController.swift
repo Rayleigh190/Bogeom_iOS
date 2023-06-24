@@ -272,10 +272,10 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             
             let shapeLayer = createRectLayer(objectBounds, colors[topLabelObservation.identifier]!)
             
-            let formattedString = NSMutableAttributedString(string: String(format: "\(topLabelObservation.identifier)\n %.1f%% ", topLabelObservation.confidence*100).capitalized)
-            
-            let textLayer = createDetectionTextLayer(objectBounds, formattedString)
-            shapeLayer.addSublayer(textLayer)
+//            let formattedString = NSMutableAttributedString(string: String(format: "\(topLabelObservation.identifier)\n %.1f%% ", topLabelObservation.confidence*100).capitalized)
+//            
+//            let textLayer = createDetectionTextLayer(objectBounds, formattedString)
+//            shapeLayer.addSublayer(textLayer)
             detectionLayer.addSublayer(shapeLayer)
         }
         

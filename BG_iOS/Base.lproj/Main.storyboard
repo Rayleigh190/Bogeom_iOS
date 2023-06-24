@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-bK-5Az">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="상품 검색" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-bK-5Az">
                                 <rect key="frame" x="10" y="92" width="394" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -26,28 +26,57 @@
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0g-6O-BWs">
-                                <rect key="frame" x="45" y="193" width="324" height="139"/>
+                                <rect key="frame" x="45" y="178" width="324" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Y0g-6O-BWs" secondAttribute="height" multiplier="7:3" id="nVO-y4-cow"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="가격표 사진 찍기" cornerStyle="small">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                <buttonConfiguration key="configuration" style="filled" image="camera.fill" catalog="system" title=" 가격표 찍기" cornerStyle="small">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <color key="baseForegroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.94901960780000005" green="0.75294117650000003" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="lAE-fF-Lgg" kind="show" identifier="captureMenuButton" id="qqj-wc-ntW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-Qj-GsA">
+                                <rect key="frame" x="45" y="347" width="324" height="138.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8FL-Qj-GsA" secondAttribute="height" multiplier="7:3" id="rd5-lb-WZE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="message.badge.filled.fill" catalog="system" title=" 상품 추천 챗봇" cornerStyle="small">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <color key="baseForegroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.94901960780000005" green="0.8980392157" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="eYy-rY-pNH" kind="show" id="rZQ-Lp-Izm"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="People buying school 1" translatesAutoresizingMaskIntoConstraints="NO" id="IjD-FJ-30d">
+                                <rect key="frame" x="10" y="545.5" width="394" height="306.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IjD-FJ-30d" secondAttribute="height" multiplier="9:7" id="1BB-fz-i5o"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Y0g-6O-BWs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="1Pz-l8-MWD"/>
                             <constraint firstItem="Y0g-6O-BWs" firstAttribute="centerX" secondItem="8ed-bK-5Az" secondAttribute="centerX" id="Bhm-O9-6dN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IjD-FJ-30d" secondAttribute="trailing" constant="10" id="FAu-37-Ip0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IjD-FJ-30d" secondAttribute="bottom" constant="10" id="NlR-RY-Bd5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8ed-bK-5Az" secondAttribute="trailing" constant="10" id="OJc-2P-fig"/>
+                            <constraint firstItem="IjD-FJ-30d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="c6x-36-Jwk"/>
                             <constraint firstItem="8ed-bK-5Az" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="h2f-Hx-1ne"/>
+                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="leading" secondItem="Y0g-6O-BWs" secondAttribute="leading" id="jUt-lH-BO1"/>
                             <constraint firstItem="8ed-bK-5Az" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m2k-qM-bAQ"/>
-                            <constraint firstItem="Y0g-6O-BWs" firstAttribute="top" secondItem="8ed-bK-5Az" secondAttribute="bottom" constant="45" id="uQO-nF-J5k"/>
+                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="top" secondItem="Y0g-6O-BWs" secondAttribute="bottom" constant="30" id="qrV-34-RUL"/>
+                            <constraint firstItem="Y0g-6O-BWs" firstAttribute="top" secondItem="8ed-bK-5Az" secondAttribute="bottom" constant="30" id="uQO-nF-J5k"/>
+                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="centerX" secondItem="Y0g-6O-BWs" secondAttribute="centerX" id="xYf-7g-ZfS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T5d-8J-TeF"/>
@@ -136,6 +165,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAg-u2-Rqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-27.455357142857142"/>
+        </scene>
+        <!--보검이-->
+        <scene sceneID="QgP-NV-QlV">
+            <objects>
+                <viewController id="eYy-rY-pNH" customClass="ChatViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RKC-sv-RSD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hca-Vr-sdp">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EM2-B8-mQV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EM2-B8-mQV" firstAttribute="trailing" secondItem="hca-Vr-sdp" secondAttribute="trailing" id="Atb-4v-g3V"/>
+                            <constraint firstItem="hca-Vr-sdp" firstAttribute="top" secondItem="EM2-B8-mQV" secondAttribute="top" id="Bg4-B6-cct"/>
+                            <constraint firstItem="EM2-B8-mQV" firstAttribute="bottom" secondItem="hca-Vr-sdp" secondAttribute="bottom" id="HUk-a3-lG7"/>
+                            <constraint firstItem="hca-Vr-sdp" firstAttribute="leading" secondItem="EM2-B8-mQV" secondAttribute="leading" id="rkh-FD-k2V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="보검이" id="SUL-Tq-Zva"/>
+                    <connections>
+                        <outlet property="webView" destination="hca-Vr-sdp" id="yxG-hH-5pz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvj-1p-Wuv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810" y="674"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="FEp-za-B09">
@@ -948,6 +1012,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="People buying school 1" width="500" height="500"/>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="message.badge.filled.fill" catalog="system" width="128" height="116"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
