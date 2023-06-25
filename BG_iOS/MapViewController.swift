@@ -1,20 +1,19 @@
 //
-//  ChatViewController.swift
+//  MapViewController.swift
 //  BG_iOS
 //
-//  Created by 우진 on 2023/06/05.
+//  Created by 우진 on 2023/06/25.
 //
 
 import UIKit
 import WebKit
 
-class ChatViewController: UIViewController {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = Bundle.main.CHAT_URL!
+        let url = Bundle.main.MAP_URL!
         loadWebPage(url)
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.tintColor = .black
@@ -29,5 +28,6 @@ class ChatViewController: UIViewController {
         webView.load(request)
         webView.reload()
     }
+
 
 }

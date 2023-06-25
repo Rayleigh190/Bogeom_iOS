@@ -27,5 +27,17 @@ extension Bundle {
         guard let key = resource["MAIN_API_URL"] as? String else {fatalError("MAIN_API_URL error")}
         return key
     }
+    var CHAT_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["CHAT_URL"] as? String else {fatalError("CHAT_URL error")}
+        return key
+    }
+    var MAP_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["MAP_URL"] as? String else {fatalError("MAP_URL error")}
+        return key
+    }
     
 }
