@@ -40,29 +40,38 @@
                                     <segue destination="lAE-fF-Lgg" kind="show" identifier="captureMenuButton" id="qqj-wc-ntW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-Qj-GsA">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tIB-Tv-SSg">
                                 <rect key="frame" x="45" y="347" width="324" height="138.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-Qj-GsA">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="138.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="message.badge.filled.fill" catalog="system" imagePlacement="top" title=" 상품 추천 챗봇" imagePadding="10" cornerStyle="small">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.94901960780000005" green="0.8980392157" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="eYy-rY-pNH" kind="show" id="rZQ-Lp-Izm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzf-H2-ETV">
+                                        <rect key="frame" x="167" y="0.0" width="157" height="138.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="map.fill" catalog="system" imagePlacement="top" title="지도 가격비교" imagePadding="10" cornerStyle="small">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="baseForegroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="baseBackgroundColor" red="0.94901960780000005" green="0.8980392157" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="bvA-Zw-PpV" kind="show" id="p5B-bb-xVU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="8FL-Qj-GsA" secondAttribute="height" multiplier="7:3" id="rd5-lb-WZE"/>
+                                    <constraint firstAttribute="width" secondItem="tIB-Tv-SSg" secondAttribute="height" multiplier="7:3" id="xhW-UV-fMb"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="message.badge.filled.fill" catalog="system" title=" 상품 추천 챗봇" cornerStyle="small">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.050980392156862744" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="baseBackgroundColor" red="0.94901960780000005" green="0.8980392157" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="eYy-rY-pNH" kind="show" id="rZQ-Lp-Izm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzf-H2-ETV">
-                                <rect key="frame" x="169.5" y="502" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <segue destination="bvA-Zw-PpV" kind="show" id="p5B-bb-xVU"/>
-                                </connections>
-                            </button>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="People buying school 1" translatesAutoresizingMaskIntoConstraints="NO" id="IjD-FJ-30d">
                                 <rect key="frame" x="10" y="545.5" width="394" height="306.5"/>
                                 <constraints>
@@ -75,18 +84,16 @@
                         <constraints>
                             <constraint firstItem="Y0g-6O-BWs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="1Pz-l8-MWD"/>
                             <constraint firstItem="Y0g-6O-BWs" firstAttribute="centerX" secondItem="8ed-bK-5Az" secondAttribute="centerX" id="Bhm-O9-6dN"/>
+                            <constraint firstItem="tIB-Tv-SSg" firstAttribute="top" secondItem="Y0g-6O-BWs" secondAttribute="bottom" constant="30" id="Eld-sU-728"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IjD-FJ-30d" secondAttribute="trailing" constant="10" id="FAu-37-Ip0"/>
+                            <constraint firstItem="tIB-Tv-SSg" firstAttribute="centerX" secondItem="Y0g-6O-BWs" secondAttribute="centerX" id="JJO-nr-iiZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IjD-FJ-30d" secondAttribute="bottom" constant="10" id="NlR-RY-Bd5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8ed-bK-5Az" secondAttribute="trailing" constant="10" id="OJc-2P-fig"/>
-                            <constraint firstItem="Lzf-H2-ETV" firstAttribute="centerX" secondItem="8FL-Qj-GsA" secondAttribute="centerX" id="Zmb-L0-6Sh"/>
-                            <constraint firstItem="Lzf-H2-ETV" firstAttribute="top" secondItem="8FL-Qj-GsA" secondAttribute="bottom" constant="16.5" id="azY-LU-GMe"/>
+                            <constraint firstItem="tIB-Tv-SSg" firstAttribute="leading" secondItem="Y0g-6O-BWs" secondAttribute="leading" id="QBY-HN-dvx"/>
                             <constraint firstItem="IjD-FJ-30d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="c6x-36-Jwk"/>
                             <constraint firstItem="8ed-bK-5Az" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="h2f-Hx-1ne"/>
-                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="leading" secondItem="Y0g-6O-BWs" secondAttribute="leading" id="jUt-lH-BO1"/>
                             <constraint firstItem="8ed-bK-5Az" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="m2k-qM-bAQ"/>
-                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="top" secondItem="Y0g-6O-BWs" secondAttribute="bottom" constant="30" id="qrV-34-RUL"/>
                             <constraint firstItem="Y0g-6O-BWs" firstAttribute="top" secondItem="8ed-bK-5Az" secondAttribute="bottom" constant="30" id="uQO-nF-J5k"/>
-                            <constraint firstItem="8FL-Qj-GsA" firstAttribute="centerX" secondItem="Y0g-6O-BWs" secondAttribute="centerX" id="xYf-7g-ZfS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T5d-8J-TeF"/>
@@ -1059,6 +1066,7 @@
     <resources>
         <image name="People buying school 1" width="500" height="500"/>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="message.badge.filled.fill" catalog="system" width="128" height="116"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">

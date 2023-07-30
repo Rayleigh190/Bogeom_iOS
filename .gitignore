@@ -3,6 +3,7 @@
 
 BG_iOS/Secrets.plist
 yolov5s.mlmodel
+replacements.txt
 
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
