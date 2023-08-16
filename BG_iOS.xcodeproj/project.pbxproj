@@ -81,6 +81,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F11FC6A72A762DCB00E353F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F166C3132A17C91A003E8C3C /* Utils.swift */,
+				F166C3152A17C975003E8C3C /* yolov5s.mlmodel */,
+				F18CDA942A17A040002A3FAC /* Assets.xcassets */,
+				F11FC6A92A762DF600E353F4 /* Storyboards */,
+				F18CDA8B2A17A03F002A3FAC /* AppDelegate.swift */,
+				F18CDA8D2A17A03F002A3FAC /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F11FC6A82A762DD600E353F4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F1E615032A8BBC5F00B3E5AA /* Classes */,
+				F11FC6AB2A762E6100E353F4 /* Models */,
+				F11FC6AA2A762E3300E353F4 /* VCs */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F11FC6A92A762DF600E353F4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F18CDA912A17A03F002A3FAC /* Main.storyboard */,
+				F18CDA962A17A040002A3FAC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F11FC6AA2A762E3300E353F4 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				F18CDA8F2A17A03F002A3FAC /* ViewController.swift */,
+				F166C3112A17A753003E8C3C /* CaptureViewController.swift */,
+				F166C3192A18BE89003E8C3C /* SearchViewController.swift */,
+				F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */,
+				F1772F792A2E0EBD00CE462F /* ChatViewController.swift */,
+				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		F11FC6AB2A762E6100E353F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1D459D52A222B4000CDF245 /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F18CDA7F2A17A03F002A3FAC = {
 			isa = PBXGroup;
 			children = (
@@ -102,26 +155,21 @@
 		F18CDA8A2A17A03F002A3FAC /* BG_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F18CDA8B2A17A03F002A3FAC /* AppDelegate.swift */,
-				F18CDA8D2A17A03F002A3FAC /* SceneDelegate.swift */,
-				F18CDA8F2A17A03F002A3FAC /* ViewController.swift */,
-				F166C3112A17A753003E8C3C /* CaptureViewController.swift */,
-				F166C3192A18BE89003E8C3C /* SearchViewController.swift */,
-				F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */,
-				F1772F792A2E0EBD00CE462F /* ChatViewController.swift */,
-				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
-				F18CDA912A17A03F002A3FAC /* Main.storyboard */,
-				F166C3132A17C91A003E8C3C /* Utils.swift */,
-				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
-				F18CDA942A17A040002A3FAC /* Assets.xcassets */,
-				F18CDA962A17A040002A3FAC /* LaunchScreen.storyboard */,
-				F166C3152A17C975003E8C3C /* yolov5s.mlmodel */,
+				F11FC6A82A762DD600E353F4 /* Sources */,
+				F11FC6A72A762DCB00E353F4 /* Resources */,
 				F18CDA992A17A040002A3FAC /* Info.plist */,
 				F1D459D12A21D30D00CDF245 /* Secrets.plist */,
 				F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */,
-				F1D459D52A222B4000CDF245 /* Model.swift */,
 			);
 			path = BG_iOS;
+			sourceTree = "<group>";
+		};
+		F1E615032A8BBC5F00B3E5AA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
