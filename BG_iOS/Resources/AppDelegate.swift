@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let sleepTimeInSeconds = 1.5
+        Thread.sleep(forTimeInterval: sleepTimeInSeconds)
         return true
     }
 
