@@ -9,7 +9,22 @@ import Foundation
 
 extension Bundle {
     
-    var AI_API_URL: String? {
+    func getSecret(name: String) -> String {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource[name] as? String else {fatalError("\(name) error")}
+        return key
+    }
+    
+    var CAMERA_SEARCH_API_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["CAMERA_SEARCH_API_URL"] as? String else {fatalError("CAMERA_SEARCH_API_URL error")}
+        return key
+    }
+    
+    
+    var SEARCH_API_URL: String? {
         guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
         guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
         guard let key = resource["AI_API_URL"] as? String else {fatalError("AI_API_URL error")}
