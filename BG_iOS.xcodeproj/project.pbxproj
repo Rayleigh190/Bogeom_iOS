@@ -25,6 +25,7 @@
 		F1D459D22A21D30D00CDF245 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1D459D12A21D30D00CDF245 /* Secrets.plist */; };
 		F1D459D42A21D4CB00CDF245 /* SecretsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */; };
 		F1D459D62A222B4000CDF245 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459D52A222B4000CDF245 /* Model.swift */; };
+		F1DD2CCE2A9F1F5C00EE9711 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DD2CCD2A9F1F5C00EE9711 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F1D459D12A21D30D00CDF245 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsBundle.swift; sourceTree = "<group>"; };
 		F1D459D52A222B4000CDF245 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F1DD2CCD2A9F1F5C00EE9711 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		F11FC6A82A762DD600E353F4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F1DD2CCC2A9F1F4700EE9711 /* Extensions */,
 				F1E615032A8BBC5F00B3E5AA /* Classes */,
 				F11FC6AB2A762E6100E353F4 /* Models */,
 				F11FC6AA2A762E3300E353F4 /* VCs */,
@@ -162,6 +165,14 @@
 				F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */,
 			);
 			path = BG_iOS;
+			sourceTree = "<group>";
+		};
+		F1DD2CCC2A9F1F4700EE9711 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1DD2CCD2A9F1F5C00EE9711 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F1E615032A8BBC5F00B3E5AA /* Classes */ = {
@@ -288,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DD2CCE2A9F1F5C00EE9711 /* UIViewController.swift in Sources */,
 				F166C3142A17C91A003E8C3C /* Utils.swift in Sources */,
 				F1D459D02A20FFF700CDF245 /* SearchResultViewController.swift in Sources */,
 				F18CDA902A17A03F002A3FAC /* ViewController.swift in Sources */,

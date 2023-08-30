@@ -18,7 +18,7 @@ struct ShopInfo: Codable {
     let naver: ShopLink?
 }
 
-struct ItemInfo: Codable {
+struct SearchItemInfo: Codable {
     let itemName: String
     
     enum CodingKeys: String, CodingKey {
@@ -26,14 +26,35 @@ struct ItemInfo: Codable {
     }
 }
 
-struct ResponseData: Codable {
-    let item: ItemInfo
+struct SearchResponseData: Codable {
+    let item: SearchItemInfo
     let shop: ShopInfo
 }
 
 struct SearchAPIResponse: Codable {
     let success: Bool
-    let response: ResponseData
+    let response: SearchResponseData
     let error: String?
 }
 
+
+// 인기 검색 상품 모델
+struct HotItem: Codable {
+    let itemName: String
+    let itemSearchCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case itemName = "item_name"
+        case itemSearchCount = "item_search_count"
+    }
+}
+
+struct HotItemResponseData: Codable {
+    let items: [HotItem]
+}
+
+struct HotItemAPIResponse: Codable {
+    let success: Bool
+    let response: HotItemResponseData
+    let error: String?
+}
