@@ -71,12 +71,17 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
         let chevronLeft = UIImage(systemName: "chevron.left")
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: chevronLeft, style: .plain, target: self, action: #selector(SearchResultViewController.tapToBack))
+        self.navigationController?.navigationBar.tintColor = .black
         
     }
     
     @objc func tapToBack() {
-        let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 3]
-        self.navigationController?.popToViewController(controller!, animated: true)
+        if let captureViewController = navigationController?.viewControllers.first(where: { $0 is CaptureViewController }) {
+            navigationController?.popToViewController(captureViewController, animated: true)
+        } else {
+            let viewController = navigationController?.viewControllers.first(where: { $0 is ViewController })
+            navigationController?.popToViewController(viewController!, animated: true)
+        }
     }
     
 
@@ -119,7 +124,7 @@ extension SearchResultViewController {
 
         isShowFloating = !isShowFloating
 
-        let image = isShowFloating ?  UIImage(systemName: "xmark.circle.fill") : UIImage(systemName: "plus.circle.fill")
+//        let image = isShowFloating ?  UIImage(systemName: "xmark.circle.fill") : UIImage(systemName: "plus.circle.fill")
         let roatation = isShowFloating ? CGAffineTransform(rotationAngle: .pi - (.pi / 4)) : CGAffineTransform.identity
 
         UIView.animate(withDuration: 0.3) {

@@ -249,11 +249,12 @@
                     <connections>
                         <outlet property="hotItemStackView" destination="hh5-Ux-iph" id="92M-Pt-gjk"/>
                         <outlet property="searchBar" destination="8ed-bK-5Az" id="htY-2c-Z2e"/>
+                        <segue destination="9sD-R7-vfc" kind="show" identifier="showTextSearchResult" id="MBN-Ns-O5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="-27"/>
+            <point key="canvasLocation" x="1872" y="-27"/>
         </scene>
         <!--Capture View Controller-->
         <scene sceneID="8ek-Wi-8Xm">
@@ -418,13 +419,13 @@
         <!--상품 정보-->
         <scene sceneID="kb2-Q9-EkW">
             <objects>
-                <viewController id="9sD-R7-vfc" customClass="SearchResultViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="9sD-R7-vfc" customClass="SearchResultViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cei-mI-T35">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E9e-QL-yqI">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -432,7 +433,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x5l-u8-Mzv">
-                                <rect key="frame" x="307.5" y="730" width="91.5" height="68"/>
+                                <rect key="frame" x="307.5" y="779" width="91.5" height="68"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHE-d9-dFK">
                                         <rect key="frame" x="0.0" y="0.0" width="91.5" height="0.0"/>
@@ -495,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFP-Bn-VwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4681.159420289855" y="-27.455357142857142"/>
+            <point key="canvasLocation" x="4600" y="-27"/>
         </scene>
         <!--홈-->
         <scene sceneID="ah0-HK-ZBG">
@@ -539,6 +540,9 @@
             <point key="canvasLocation" x="44.927536231884062" y="-27.455357142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="GlS-8u-LTU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle.fill" catalog="system" width="128" height="123"/>
         <image name="2.circle.fill" catalog="system" width="128" height="123"/>
