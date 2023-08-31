@@ -9,8 +9,22 @@ import UIKit
 import AVFoundation
 import Vision
 import Photos
+import CoreLocation
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        // desiredAccuracy는 위치의 정확도를 설정함.
+        // 높으면 배터리 많이 닳음.
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        return manager
+     }()
+    
+    var userLat: Double?
+    var userLon: Double?
+    
     var objectBounds: CGRect!
     var outputImage : UIImage!
     
@@ -37,6 +51,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     // Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.locationManager.requestWhenInUseAuthorization()
         count += 1
         setupCapture()
         setupOutput()
@@ -57,6 +72,12 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                         self.captureSession.startRunning()
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Stop location tracking when leaving the view controller
+        locationManager.stopUpdatingLocation()
     }
     
     func setupUI() {
@@ -297,6 +318,8 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             if let priceImg = sender as? UIImage {
                 vc?.cropImage = priceImg
             }
+            vc?.userLat = userLat
+            vc?.userLon = userLon
         }
     }
 
@@ -322,5 +345,40 @@ extension CaptureViewController: AVCapturePhotoCaptureDelegate {
                 self.captureSession.stopRunning()
             }
         }
+    }
+}
+
+extension CaptureViewController: CLLocationManagerDelegate {
+    
+    func getLocationUsagePermission() {
+        //location4
+        self.locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        //location5
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("GPS 권한 설정됨")
+            self.locationManager.startUpdatingLocation() // 중요!
+        case .restricted, .notDetermined:
+            print("GPS 권한 설정되지 않음")
+            getLocationUsagePermission()
+        case .denied:
+            print("GPS 권한 요청 거부됨")
+            getLocationUsagePermission()
+        default:
+            print("GPS: Default")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // the most recent location update is at the end of the array.
+        let location: CLLocation = locations[locations.count - 1]
+        let longtitude: CLLocationDegrees = location.coordinate.longitude
+        let latitude:CLLocationDegrees = location.coordinate.latitude
+        
+        userLat = Double(latitude)
+        userLon = Double(longtitude)
     }
 }

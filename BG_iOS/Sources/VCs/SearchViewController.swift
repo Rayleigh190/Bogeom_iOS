@@ -15,6 +15,8 @@ class SearchViewController: UIViewController {
     var enuri_link: String?
     var danawq_link: String?
     var naver_link: String?
+    var userLat: Double?
+    var userLon: Double?
     
     @IBOutlet weak var imgView: UIImageView!
     
@@ -45,10 +47,10 @@ class SearchViewController: UIViewController {
             /** 서버로 전송할 데이터 */
             multipartData.append(imgData, withName: "image", fileName: "temp.jpeg", mimeType: "image/jpeg")
             // Append latitude and longitude
-            let latData = Data("\(37.2505405)".utf8) // Convert latitude to data
+            let latData = Data(String(self.userLat!).utf8) // Convert latitude to data
             multipartData.append(latData, withName: "lat")
             
-            let lonData = Data("\(127.0372674)".utf8) // Convert longitude to data
+            let lonData = Data(String(self.userLon!).utf8) // Convert longitude to data
             multipartData.append(lonData, withName: "lon")
         }, to: url, headers: header).responseDecodable(of: SearchAPIResponse.self)
         { response in
