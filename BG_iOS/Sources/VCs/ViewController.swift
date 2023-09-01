@@ -17,6 +17,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var hotItemStackView: UIStackView!
+    @IBOutlet weak var adImageView: UIImageView!
+    @IBOutlet weak var adBottomSectionView: UIView!
+    @IBOutlet weak var adButton: UIButton!
+    @IBOutlet weak var adStackView: UIStackView!
+    @IBOutlet weak var adParentStackView: UIStackView!
     
     var hotItemNameList: [String] = []
     
@@ -53,6 +58,19 @@ private extension ViewController {
         hotItemStackView.layer.shadowRadius = 5
         hotItemStackView.layer.masksToBounds = false
         hotItemStackView.layer.cornerRadius = 15
+        
+        adStackView.backgroundColor = .systemBackground
+        adStackView.layer.masksToBounds = true
+        adStackView.layer.cornerRadius = 15
+        
+        adParentStackView.layer.shadowColor = UIColor.black.cgColor
+        adParentStackView.layer.shadowOpacity = 0.2
+        adParentStackView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        adParentStackView.layer.shadowRadius = 5
+        adParentStackView.layer.masksToBounds = false
+        
+        adButton.layer.cornerRadius = 20
+        
     }
     
     func hotItemStackUpdate() {
@@ -147,6 +165,10 @@ private extension ViewController {
     //        let statusBarView = UIApplication.shared.value(forKey: "statusBar") as? UIView
     //        statusBarView?.backgroundColor = bgColor
     //    }
+    }
+    
+    @IBAction func goAdPage(_ sender: UIButton) {
+        Utils.openExternalLink(urlStr: "https://www.nike.com/kr/t/%EC%97%90%EC%96%B4-%ED%8F%AC%EC%8A%A4-1-07-%EB%82%A8%EC%84%B1-%EC%8B%A0%EB%B0%9C-TttlGpDb/CW2288-111")
     }
     
 }
