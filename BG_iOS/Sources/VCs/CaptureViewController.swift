@@ -13,12 +13,16 @@ import CoreLocation
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    var isCaptured: Bool = false
+    var hasPerformedSegue = false
+    var image: UIImage? // 카메라로 촬영한 이미지
+    var croppedImage: UIImage? // 객체 탐지로 자른 이미지
+    
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
-        // desiredAccuracy는 위치의 정확도를 설정함.
-        // 높으면 배터리 많이 닳음.
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyBest // 높은 위치 정확도
         manager.delegate = self
+        
         return manager
      }()
     
@@ -26,7 +30,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var userLon: Double?
     
     var objectBounds: CGRect!
-    var outputImage : UIImage!
+//    var outputImage : UIImage!
     
     // Capture
     var bufferSize: CGSize = .zero
@@ -34,7 +38,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     let photoOutput = AVCapturePhotoOutput()
     
     
-    // UI/Layers
+    // UI and Layers
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var blurBGView: UIVisualEffectView!
@@ -42,11 +46,10 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     private var previewLayer: AVCaptureVideoPreviewLayer! = nil
     private var detectionLayer: CALayer! = nil
     
-    
     // Vision
     private var requests = [VNRequest]()
     
-    var count:Int = 0
+    var count:Int = 0 // 카메라 화면에 들어온 회수를 카운트
     
     // Setup
     override func viewDidLoad() {
@@ -59,9 +62,10 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         setupUI()
         try? setupVision()
         DispatchQueue.global(qos: .background).async {
-                    self.captureSession.startRunning()
+            self.captureSession.startRunning()
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         count += 1
         if count > 2 { // nav bar back을 통해 뒤로 이동해도 카메라 세션이 다시 시작 되게 함
@@ -78,6 +82,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         super.viewWillDisappear(animated)
         // Stop location tracking when leaving the view controller
         locationManager.stopUpdatingLocation()
+        hasPerformedSegue = false
     }
     
     func setupUI() {
@@ -239,7 +244,6 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         }
     }
     
-    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
@@ -283,21 +287,38 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         let objectObservation = result
         // Detection with highest confidence
 //        print(objectObservation.labels.count)
-        if objectObservation.labels.count > 0 {
-            let topLabelObservation = objectObservation.labels[0]
+        if !isCaptured {
+            if objectObservation.labels.count > 0 {
+                let topLabelObservation = objectObservation.labels[0]
+                
+                // Rotate the bounding box into screen orientation
+                let boundingBox = CGRect(origin: CGPoint(x:1.0-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height, y:objectObservation.boundingBox.origin.x), size: CGSize(width:objectObservation.boundingBox.size.height,height:objectObservation.boundingBox.size.width))
             
-            // Rotate the bounding box into screen orientation
-            let boundingBox = CGRect(origin: CGPoint(x:1.0-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height, y:objectObservation.boundingBox.origin.x), size: CGSize(width:objectObservation.boundingBox.size.height,height:objectObservation.boundingBox.size.width))
+                objectBounds = VNImageRectForNormalizedRect(boundingBox, Int(bufferSize.width ), Int(bufferSize.height))
+                
+                let shapeLayer = createRectLayer(objectBounds, colors[topLabelObservation.identifier]!)
+                
+    //            let formattedString = NSMutableAttributedString(string: String(format: "\(topLabelObservation.identifier)\n %.1f%% ", topLabelObservation.confidence*100).capitalized)
+    //
+    //            let textLayer = createDetectionTextLayer(objectBounds, formattedString)
+    //            shapeLayer.addSublayer(textLayer)
+                detectionLayer.addSublayer(shapeLayer)
+            }
+        }
         
-            objectBounds = VNImageRectForNormalizedRect(boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-            
-            let shapeLayer = createRectLayer(objectBounds, colors[topLabelObservation.identifier]!)
-            
-//            let formattedString = NSMutableAttributedString(string: String(format: "\(topLabelObservation.identifier)\n %.1f%% ", topLabelObservation.confidence*100).capitalized)
-//            
-//            let textLayer = createDetectionTextLayer(objectBounds, formattedString)
-//            shapeLayer.addSublayer(textLayer)
-            detectionLayer.addSublayer(shapeLayer)
+//        print("아아아")
+        // Crop the captured image based on the detection results
+        if let cgImage = image?.cgImage,
+           let croppedCGImage = cgImage.cropping(to: objectBounds) {
+            let croppedImage = UIImage(cgImage: croppedCGImage)
+//            print("구구구")
+            // Perform the segue with the cropped image as sender
+            if isCaptured && !hasPerformedSegue {
+//                print("타타타")
+                hasPerformedSegue = true
+                performSegue(withIdentifier: "showSearch", sender: croppedImage)
+                isCaptured = false
+            }
         }
         
         CATransaction.commit()
@@ -310,16 +331,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 //        previewLayer = nil
 //    }
     
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSearch" {
             let vc = segue.destination as? SearchViewController
             if let priceImg = sender as? UIImage {
                 vc?.cropImage = priceImg
+                vc?.userLat = userLat
+                vc?.userLon = userLon
             }
-            vc?.userLat = userLat
-            vc?.userLon = userLon
         }
     }
 
@@ -332,18 +351,29 @@ extension CaptureViewController: AVCapturePhotoCaptureDelegate {
         // TODO: capturePhoto delegate method 구현
         guard error == nil else { return }
         guard let imageData = photo.fileDataRepresentation() else { return }
-        guard let image = UIImage(data: imageData) else { return }
+        image = UIImage(data: imageData)
 //        guard let cgImageSource = CGImageSourceCreateWithData(imageData as CFData, nil) else {print("실패"); return}
 //        guard let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil) else {return}
         
-        let cropedImg = image.cgImage?.cropping(to: objectBounds)
-        let newImg = UIImage(cgImage: cropedImg!)
-        performSegue(withIdentifier: "showSearch", sender: newImg)
-//        self.savePhotoLibrary(image: image)
+        // Perform object detection on the captured image
+        performObjectDetection(image!)
+        isCaptured = true
+//        self.savePhotoLibrary(image: image!)
         if captureSession.isRunning {
             DispatchQueue.global().async {
                 self.captureSession.stopRunning()
             }
+        }
+    }
+    
+    func performObjectDetection(_ image: UIImage) {
+        guard let cgImage = image.cgImage else { return }
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        
+        do {
+            try requestHandler.perform(requests)
+        } catch {
+            print(error)
         }
     }
 }
