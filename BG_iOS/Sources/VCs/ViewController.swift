@@ -32,6 +32,14 @@ class ViewController: UIViewController {
         searchBar.searchTextField.backgroundColor = UIColor.white
         setupViews()
         setupGestureRecognizers()
+        
+        // 앱 설치 후 한 번만 실행
+        if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
+            UserDefaults.standard.set("naver", forKey: "defaultSearchShop")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
+        updateUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +58,25 @@ class ViewController: UIViewController {
 }
 
 private extension ViewController {
+    
+    func updateUI() {
+        // 기본 검색 사이트 설정에 따른 UI 업데이트
+        let defaultShop: String = UserDefaults.standard.string(forKey: "defaultSearchShop")!
+        if defaultShop == "naver" {
+            let button = shopSelectStackView.arrangedSubviews[0] as? UIButton
+            button?.isSelected = true
+            button?.backgroundColor = .blue
+        } else if defaultShop == "enuri" {
+            let button = shopSelectStackView.arrangedSubviews[1] as? UIButton
+            button?.isSelected = true
+            button?.backgroundColor = .blue
+        } else {
+            let button = shopSelectStackView.arrangedSubviews[2] as? UIButton
+            button?.isSelected = true
+            button?.backgroundColor = .blue
+        }
+        
+    }
     
     func setupViews() {
         hotItemStackView.backgroundColor = .systemBackground
@@ -112,6 +139,15 @@ private extension ViewController {
                     // If the current button is the button that called this function
                     btn.isSelected = true
                     btn.backgroundColor = UIColor.blue
+                    
+                    let idx = shopSelectStackView.arrangedSubviews.firstIndex(of: btn)
+                    if idx == 0 {
+                        UserDefaults.standard.set("naver", forKey: "defaultSearchShop")
+                    } else if idx == 1 {
+                        UserDefaults.standard.set("enuri", forKey: "defaultSearchShop")
+                    } else {
+                        UserDefaults.standard.set("danawa", forKey: "defaultSearchShop")
+                    }
                 } else {
                     // If it is not the button that called this function
                     btn.isSelected = false

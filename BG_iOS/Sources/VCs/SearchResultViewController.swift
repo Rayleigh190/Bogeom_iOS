@@ -49,8 +49,18 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
         webView.uiDelegate = self // a link target=_blank 동작하도록
         updateUI()
         
-        loadWebPage(naver_link ?? "https://naver.com")
-
+        let defaultShop: String = UserDefaults.standard.string(forKey: "defaultSearchShop")!
+        if defaultShop == "naver" {
+            loadWebPage(naver_link ?? "https://naver.com")
+        } else if defaultShop == "enuri" {
+            loadWebPage(enuri_link ?? "https://naver.com")
+        } else {
+            loadWebPage(danawa_link ?? "https://naver.com")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.backgroundColor = .clear
     }
     
     private func loadWebPage(_ url: String) {
