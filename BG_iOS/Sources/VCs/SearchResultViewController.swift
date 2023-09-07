@@ -8,8 +8,11 @@
 import UIKit
 import Kingfisher
 import WebKit
+import Alamofire
 
 class SearchResultViewController: UIViewController, WKUIDelegate {
+    
+    var reviewData: BlogReviewAPIResponse?
     
     
     @IBOutlet weak var webView: WKWebView!
@@ -19,6 +22,7 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
     @IBOutlet weak var naverButton: UIButton!
     @IBOutlet weak var enuriButton: UIButton!
     @IBOutlet weak var danawaButton: UIButton!
+    @IBOutlet weak var blogReviewButton: UIButton!
     
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -33,7 +37,7 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
     
     var isShowFloating: Bool = false
 
-    lazy var buttons: [UIButton] = [self.naverButton, self.enuriButton  , self.danawaButton]
+    lazy var buttons: [UIButton] = [self.naverButton, self.enuriButton  , self.danawaButton, self.blogReviewButton]
     
     var itemName: String?
     var enuri_link: String?
@@ -150,6 +154,42 @@ extension SearchResultViewController {
     @IBAction func danawqButtonAction(_ sender: UIButton) {
         loadWebPage(danawa_link ?? "https://danawa.com")
         toggleFloatingButton()
+    }
+    
+    @IBAction func blogReviewButtonAction(_ sender: UIButton) {
+        blogReviewSearch(search: itemName!)
+//        self.performSegue(withIdentifier: "showSearchBlogReview", sender: self)
+//        toggleFloatingButton()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSearchBlogReview" {
+            let vc = segue.destination as? BlogReviewViewController
+            vc?.itemName = itemName
+            vc?.reviewData = reviewData
+        }
+    }
+    
+    func blogReviewSearch(search: String) {
+        
+        let url = Bundle.main.getSecret(name: "Blog_Review_SEARCH_API_URL")
+        
+        let parameters: Parameters = ["search": search]
+        
+        AF.request(url, method: .get, parameters: parameters).responseDecodable(of: BlogReviewAPIResponse.self)
+        { response in
+            switch response.result {
+            case .success(let successData):
+                print("성공")
+//                print(successData)
+                self.reviewData = successData
+                self.performSegue(withIdentifier: "showSearchBlogReview", sender: self)
+            case .failure(let error):
+                print("실패")
+                print(response)
+                print(false, error.localizedDescription)
+            }
+        }
     }
     
 }

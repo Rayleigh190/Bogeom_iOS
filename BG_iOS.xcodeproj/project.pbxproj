@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B130C82D43C4EE2DAFD97BE /* Pods_BG_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDE0258F5B8F2BC2572FA6D /* Pods_BG_iOS.framework */; };
+		F126B1D92AA873140035E499 /* BlogReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1D82AA873140035E499 /* BlogReviewViewController.swift */; };
+		F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */; };
+		F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */; };
 		F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3112A17A753003E8C3C /* CaptureViewController.swift */; };
 		F166C3142A17C91A003E8C3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3132A17C91A003E8C3C /* Utils.swift */; };
 		F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F166C3152A17C975003E8C3C /* yolov5s.mlmodel */; };
@@ -32,6 +35,9 @@
 		01461A9DF201079CF9677E94 /* Pods-BG_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BG_iOS.release.xcconfig"; path = "Target Support Files/Pods-BG_iOS/Pods-BG_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		2EDE0258F5B8F2BC2572FA6D /* Pods_BG_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BG_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C55F07711A53A34E634A57 /* Pods-BG_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BG_iOS.debug.xcconfig"; path = "Target Support Files/Pods-BG_iOS/Pods-BG_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F126B1D82AA873140035E499 /* BlogReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewViewController.swift; sourceTree = "<group>"; };
+		F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewCell.swift; sourceTree = "<group>"; };
+		F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewDetailViewController.swift; sourceTree = "<group>"; };
 		F166C3112A17A753003E8C3C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		F166C3132A17C91A003E8C3C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F166C3152A17C975003E8C3C /* yolov5s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov5s.mlmodel; sourceTree = "<group>"; };
@@ -123,6 +129,9 @@
 				F166C3112A17A753003E8C3C /* CaptureViewController.swift */,
 				F166C3192A18BE89003E8C3C /* SearchViewController.swift */,
 				F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */,
+				F126B1D82AA873140035E499 /* BlogReviewViewController.swift */,
+				F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */,
+				F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */,
 				F1772F792A2E0EBD00CE462F /* ChatViewController.swift */,
 				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
 			);
@@ -304,9 +313,12 @@
 				F1D459D02A20FFF700CDF245 /* SearchResultViewController.swift in Sources */,
 				F18CDA902A17A03F002A3FAC /* ViewController.swift in Sources */,
 				F166C31A2A18BE89003E8C3C /* SearchViewController.swift in Sources */,
+				F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */,
 				F166C3182A1871F4003E8C3C /* PreviewView.swift in Sources */,
+				F126B1D92AA873140035E499 /* BlogReviewViewController.swift in Sources */,
 				F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */,
 				F1A903EB2A4759BA002EBA84 /* MapViewController.swift in Sources */,
+				F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */,
 				F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */,
 				F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */,
 				F1D459D62A222B4000CDF245 /* Model.swift in Sources */,

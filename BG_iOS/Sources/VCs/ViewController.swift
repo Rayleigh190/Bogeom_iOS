@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var adButton: UIButton!
     @IBOutlet weak var adStackView: UIStackView!
     @IBOutlet weak var adParentStackView: UIStackView!
+    @IBOutlet weak var shopSelectStackView: UIStackView!
     
     var hotItemNameList: [String] = []
     
@@ -101,6 +102,22 @@ private extension ViewController {
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         if let label = sender.view as? UILabel {
             textSearch(search: label.text ?? "")
+        }
+    }
+    
+    @IBAction func selectShopBtnAction(_ sender: UIButton) {
+        for view in shopSelectStackView.arrangedSubviews {
+            if let btn = view as? UIButton {
+                if btn == sender {
+                    // If the current button is the button that called this function
+                    btn.isSelected = true
+                    btn.backgroundColor = UIColor.blue
+                } else {
+                    // If it is not the button that called this function
+                    btn.isSelected = false
+                    btn.backgroundColor = UIColor.red
+                }
+            }
         }
     }
     
