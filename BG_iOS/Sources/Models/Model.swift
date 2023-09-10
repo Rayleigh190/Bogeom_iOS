@@ -149,3 +149,11 @@ struct ShopAPIResponse: Codable {
     let response: ShopResponseData
     let error: String?
 }
+
+
+// 블로그 리뷰 요약 모델
+struct GptResponse: Codable {
+    let success: Bool
+    let result: String
+    let error: String?
+}

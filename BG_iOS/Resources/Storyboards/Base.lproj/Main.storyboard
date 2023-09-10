@@ -549,7 +549,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-Xp-jLt">
                                 <rect key="frame" x="0.0" y="671.5" width="414" height="141.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-Y0-M7W">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-Y0-M7W">
                                         <rect key="frame" x="25" y="24" width="364" height="93.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JcR-SO-Gwx">
@@ -561,16 +561,16 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bAd-GH-FfN">
-                                                <rect key="frame" x="143.5" y="0.0" width="220.5" height="93.5"/>
+                                                <rect key="frame" x="118.5" y="0.0" width="245.5" height="93.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-my-Edx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="220.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="245.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-Tk-9on">
-                                                        <rect key="frame" x="0.0" y="28.5" width="220.5" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="28.5" width="245.5" height="28.5"/>
                                                         <color key="tintColor" name="BasePurple"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="온라인 가격비교 바로가기">
@@ -581,7 +581,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T8-e1-UDr">
-                                                        <rect key="frame" x="0.0" y="65" width="220.5" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="65" width="245.5" height="28.5"/>
                                                         <color key="tintColor" name="BasePurple"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="블로그 리뷰 바로가기">
@@ -856,11 +856,24 @@
                                                         <constraint firstItem="8Ng-mT-fIi" firstAttribute="leading" secondItem="enI-md-EZA" secondAttribute="trailing" constant="5" id="yxh-DQ-RWJ"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCC-rJ-G8r">
+                                                    <rect key="frame" x="326" y="-5" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="mCC-rJ-G8r" secondAttribute="height" multiplier="1:1" id="LCs-M5-uIu"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="ChatGptBtnImg"/>
+                                                    <connections>
+                                                        <action selector="goGptButton:" destination="IYj-uy-Xs2" eventType="touchUpInside" id="mVa-0h-KJD"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="oeb-Ic-fVA" firstAttribute="centerY" secondItem="s2t-BH-UbQ" secondAttribute="centerY" id="2dF-sp-jZW"/>
                                                 <constraint firstItem="oeb-Ic-fVA" firstAttribute="centerX" secondItem="s2t-BH-UbQ" secondAttribute="centerX" id="6ln-Wb-chW"/>
+                                                <constraint firstAttribute="trailing" secondItem="mCC-rJ-G8r" secondAttribute="trailing" constant="-10" id="ZJG-KJ-arC"/>
                                                 <constraint firstItem="oeb-Ic-fVA" firstAttribute="leading" secondItem="s2t-BH-UbQ" secondAttribute="leading" constant="14" id="czV-ha-3nu"/>
+                                                <constraint firstItem="mCC-rJ-G8r" firstAttribute="top" secondItem="s2t-BH-UbQ" secondAttribute="top" constant="-5" id="jFp-Ay-nVL"/>
                                                 <constraint firstItem="oeb-Ic-fVA" firstAttribute="top" secondItem="s2t-BH-UbQ" secondAttribute="top" constant="18" id="jfI-YF-e6l"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -901,11 +914,79 @@
                         <outlet property="blogReviewTableView" destination="AP3-Ls-CeG" id="eXc-zH-rrO"/>
                         <outlet property="longTitleLabel" destination="kSd-ak-Db0" id="LtM-dU-fqe"/>
                         <segue destination="AmI-bC-hRz" kind="show" identifier="showBlogReviewDetail" id="1mB-T8-hK7"/>
+                        <segue destination="aJM-5I-lNy" kind="presentation" identifier="showGptResult" id="807-VN-q1p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiZ-GF-R0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4599" y="742"/>
+        </scene>
+        <!--Gpt Result View Controller-->
+        <scene sceneID="KCu-DT-Y3i">
+            <objects>
+                <viewController id="aJM-5I-lNy" customClass="GptResultViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="51o-xU-w5I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="lrQ-8k-EvM">
+                                <rect key="frame" x="0.0" y="48" width="414" height="194"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="CkG-As-pxn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="블로그 리뷰를 요약 중입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-Nv-l0M">
+                                <rect key="frame" x="30" y="98" width="227" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잠시만 기다려주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddW-Cn-fme">
+                                <rect key="frame" x="30" y="130" width="167" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uON-Jp-YCz">
+                                <rect key="frame" x="189" y="348" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brf-Cb-yRI">
+                                <rect key="frame" x="30" y="308" width="354" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PgV-XL-3vr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a4Y-Nv-l0M" firstAttribute="leading" secondItem="PgV-XL-3vr" secondAttribute="leading" constant="30" id="1m9-EW-YVY"/>
+                            <constraint firstItem="PgV-XL-3vr" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ddW-Cn-fme" secondAttribute="trailing" constant="217" id="2Y8-zK-JlJ"/>
+                            <constraint firstItem="ddW-Cn-fme" firstAttribute="leading" secondItem="a4Y-Nv-l0M" secondAttribute="leading" id="2gy-yC-BOx"/>
+                            <constraint firstItem="uON-Jp-YCz" firstAttribute="leading" secondItem="PgV-XL-3vr" secondAttribute="leading" constant="189" id="4Rl-kF-wvq"/>
+                            <constraint firstItem="brf-Cb-yRI" firstAttribute="leading" secondItem="PgV-XL-3vr" secondAttribute="leading" constant="30" id="ADs-KY-NIe"/>
+                            <constraint firstItem="a4Y-Nv-l0M" firstAttribute="top" secondItem="PgV-XL-3vr" secondAttribute="top" constant="50" id="C8I-ms-GFD"/>
+                            <constraint firstItem="PgV-XL-3vr" firstAttribute="trailing" secondItem="uON-Jp-YCz" secondAttribute="trailing" constant="188" id="EnM-DB-0b6"/>
+                            <constraint firstItem="PgV-XL-3vr" firstAttribute="trailing" secondItem="lrQ-8k-EvM" secondAttribute="trailing" id="LGR-wg-Vy7"/>
+                            <constraint firstItem="ddW-Cn-fme" firstAttribute="top" secondItem="a4Y-Nv-l0M" secondAttribute="bottom" constant="8" symbolic="YES" id="M1E-wK-LvJ"/>
+                            <constraint firstItem="PgV-XL-3vr" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="a4Y-Nv-l0M" secondAttribute="trailing" constant="157" id="Ng3-bW-Hsm"/>
+                            <constraint firstItem="brf-Cb-yRI" firstAttribute="centerX" secondItem="PgV-XL-3vr" secondAttribute="centerX" id="Yc8-qQ-pgh"/>
+                            <constraint firstItem="brf-Cb-yRI" firstAttribute="top" secondItem="PgV-XL-3vr" secondAttribute="top" constant="260" id="aNl-TT-423"/>
+                            <constraint firstItem="uON-Jp-YCz" firstAttribute="top" secondItem="PgV-XL-3vr" secondAttribute="top" constant="300" id="cLi-vV-gjR"/>
+                            <constraint firstItem="lrQ-8k-EvM" firstAttribute="leading" secondItem="PgV-XL-3vr" secondAttribute="leading" id="nO3-kp-ryK"/>
+                            <constraint firstItem="PgV-XL-3vr" firstAttribute="top" secondItem="lrQ-8k-EvM" secondAttribute="top" id="uuc-Ga-tkx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="uON-Jp-YCz" id="73u-11-XEz"/>
+                        <outlet property="resultLable" destination="brf-Cb-yRI" id="GhH-BG-LI3"/>
+                        <outlet property="subTitleLabel" destination="ddW-Cn-fme" id="fBr-nc-1ne"/>
+                        <outlet property="titleLabel" destination="a4Y-Nv-l0M" id="oTp-y2-Ihc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xj9-DY-fZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4598.5507246376819" y="1479.9107142857142"/>
         </scene>
         <!--Blog Review Detail View Controller-->
         <scene sceneID="3Sb-SY-JhG">
@@ -1004,7 +1085,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="UNM-Ew-oLb"/>
-        <segue reference="MBN-Ns-O5m"/>
+        <segue reference="fsf-VL-FZR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle.fill" catalog="system" width="128" height="123"/>
@@ -1014,6 +1095,7 @@
         <image name="5.circle.fill" catalog="system" width="128" height="123"/>
         <image name="Bell3dIconImg" width="45" height="45"/>
         <image name="BlogReviewFloatinBtnImg" width="65" height="65"/>
+        <image name="ChatGptBtnImg" width="40" height="40"/>
         <image name="DanawqFloatinBtnImg" width="65" height="65"/>
         <image name="EnuriFloatinBtnImg" width="65" height="65"/>
         <image name="Fire3dIconImg" width="45" height="45"/>

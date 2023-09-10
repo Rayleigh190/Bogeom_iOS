@@ -60,6 +60,12 @@ extension Bundle {
         guard let key = resource["SHOP_SEARCH_API_URL"] as? String else {fatalError("SHOP_SEARCH_API_URL error")}
         return key
     }
+    var GPT_API_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["GPT_API_URL"] as? String else {fatalError("GPT_API_URL error")}
+        return key
+    }
     
     var NMFClientId: String? {
         guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}

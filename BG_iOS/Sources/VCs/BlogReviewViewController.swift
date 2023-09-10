@@ -17,6 +17,19 @@ class BlogReviewViewController: UIViewController {
     @IBOutlet weak var longTitleLabel: UILabel!
     @IBOutlet weak var blogReviewTableView: UITableView!
     
+    @IBAction func goGptButton(_ sender: UIButton) {
+        if let cell = sender.superview?.superview as? UITableViewCell, let indexPath = blogReviewTableView.indexPath(for: cell) {
+            // indexPath를 사용하여 클릭된 셀의 인덱스를 얻을 수 있습니다.
+            clickedIndex = indexPath.row
+            // 이제 clickedIndex를 사용하여 필요한 작업을 수행할 수 있습니다.
+            // 예: 클릭된 셀에 해당하는 데이터를 가져오거나 다른 활동 수행
+            self.performSegue(withIdentifier: "showGptResult", sender: self)
+        }
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         blogReviewTableView.delegate = self
@@ -78,9 +91,11 @@ extension BlogReviewViewController: UITableViewDataSource, UITableViewDelegate {
         if segue.identifier == "showBlogReviewDetail" {
             let vc = segue.destination as? BlogReviewDetailViewController
             vc?.blogLink = reviewData?.blog.reviews[clickedIndex!].link
-//            vc?.enuri_link = enuri_link
-//            vc?.danawa_link = danawq_link
-//            vc?.naver_link = naver_link
+        }
+        
+        if segue.identifier == "showGptResult" {
+            let vc = segue.destination as? GptResultViewController
+            vc?.link = (reviewData?.blog.reviews[clickedIndex!].link)!
         }
     }
     
