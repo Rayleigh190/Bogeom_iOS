@@ -10,8 +10,8 @@ import UIKit
 class ItemSelectCell: UITableViewCell {
     
     @IBOutlet weak var itemNameLabel: UILabel!
-
-
+    @IBOutlet weak var itemImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

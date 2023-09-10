@@ -24,6 +24,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var adParentStackView: UIStackView!
     @IBOutlet weak var shopSelectStackView: UIStackView!
     
+    @IBOutlet weak var naverSelectButton: UIButton!
+    @IBOutlet weak var enuriSelectButton: UIButton!
+    @IBOutlet weak var danawaSelectButton: UIButton!
+    
     var hotItemNameList: [String] = []
     
     override func viewDidLoad() {
@@ -65,16 +69,31 @@ private extension ViewController {
         if defaultShop == "naver" {
             let button = shopSelectStackView.arrangedSubviews[0] as? UIButton
             button?.isSelected = true
-            button?.backgroundColor = .blue
+            button?.backgroundColor = UIColor.init(hexCode: "03CF5D")
         } else if defaultShop == "enuri" {
             let button = shopSelectStackView.arrangedSubviews[1] as? UIButton
             button?.isSelected = true
-            button?.backgroundColor = .blue
+            button?.backgroundColor = UIColor.init(hexCode: "0092FF")
         } else {
             let button = shopSelectStackView.arrangedSubviews[2] as? UIButton
             button?.isSelected = true
-            button?.backgroundColor = .blue
+            button?.backgroundColor = UIColor.init(hexCode: "68C91C")
         }
+        
+        naverSelectButton.layer.borderWidth = 3
+        naverSelectButton.layer.borderColor = UIColor.init(hexCode: "03CF5D").cgColor
+        naverSelectButton.layer.cornerRadius = naverSelectButton.frame.height / 2
+        naverSelectButton.layer.masksToBounds = true
+        
+        enuriSelectButton.layer.borderWidth = 3
+        enuriSelectButton.layer.borderColor = UIColor.init(hexCode: "0092FF").cgColor
+        enuriSelectButton.layer.cornerRadius = enuriSelectButton.frame.height / 2
+        enuriSelectButton.layer.masksToBounds = true
+        
+        danawaSelectButton.layer.borderWidth = 3
+        danawaSelectButton.layer.borderColor = UIColor.init(hexCode: "68C91C").cgColor
+        danawaSelectButton.layer.cornerRadius = danawaSelectButton.frame.height / 2
+        danawaSelectButton.layer.masksToBounds = true
         
     }
     
@@ -138,20 +157,23 @@ private extension ViewController {
                 if btn == sender {
                     // If the current button is the button that called this function
                     btn.isSelected = true
-                    btn.backgroundColor = UIColor.blue
+//                    btn.backgroundColor = UIColor.blue
                     
                     let idx = shopSelectStackView.arrangedSubviews.firstIndex(of: btn)
                     if idx == 0 {
                         UserDefaults.standard.set("naver", forKey: "defaultSearchShop")
+                        btn.backgroundColor = UIColor.init(hexCode: "03CF5D")
                     } else if idx == 1 {
                         UserDefaults.standard.set("enuri", forKey: "defaultSearchShop")
+                        btn.backgroundColor = UIColor.init(hexCode: "0092FF")
                     } else {
                         UserDefaults.standard.set("danawa", forKey: "defaultSearchShop")
+                        btn.backgroundColor = UIColor.init(hexCode: "68C91C")
                     }
                 } else {
                     // If it is not the button that called this function
                     btn.isSelected = false
-                    btn.backgroundColor = UIColor.red
+                    btn.backgroundColor = UIColor.systemBackground
                 }
             }
         }

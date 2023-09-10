@@ -59,7 +59,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21t-LF-54M">
                                                         <rect key="frame" x="0.0" y="0.0" width="68.5" height="34.5"/>
-                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="네이버"/>
@@ -69,7 +69,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XT-3E-cIi">
                                                         <rect key="frame" x="73.5" y="0.0" width="68.5" height="34.5"/>
-                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="에누리"/>
@@ -79,7 +79,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-db-RAg">
                                                         <rect key="frame" x="147" y="0.0" width="68.5" height="34.5"/>
-                                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="다나와"/>
@@ -362,10 +362,13 @@
                         <outlet property="adImageView" destination="CM4-Df-kge" id="2CY-hi-Sju"/>
                         <outlet property="adParentStackView" destination="rMF-QR-1lG" id="ogO-AL-tON"/>
                         <outlet property="adStackView" destination="vVh-ea-Z8P" id="CJS-A9-dTX"/>
+                        <outlet property="danawaSelectButton" destination="PrE-db-RAg" id="TKy-ks-L6B"/>
+                        <outlet property="enuriSelectButton" destination="6XT-3E-cIi" id="sSF-oC-40x"/>
                         <outlet property="hotItemStackView" destination="hh5-Ux-iph" id="92M-Pt-gjk"/>
+                        <outlet property="naverSelectButton" destination="21t-LF-54M" id="JXG-HV-jDv"/>
                         <outlet property="searchBar" destination="8ed-bK-5Az" id="htY-2c-Z2e"/>
                         <outlet property="shopSelectStackView" destination="j8y-8N-Lk6" id="D7O-Yu-hZD"/>
-                        <segue destination="9sD-R7-vfc" kind="show" identifier="showTextSearchResult" id="MBN-Ns-O5m"/>
+                        <segue destination="9sD-R7-vfc" kind="show" identifier="showTextSearchResult" destinationCreationSelector="danawaSelectButton:" id="MBN-Ns-O5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -466,27 +469,37 @@
                                 <rect key="frame" x="0.0" y="68" width="414" height="770"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemSelectCell" id="UZJ-7z-g6q" customClass="ItemSelectCell" customModule="BG_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemSelectCell" rowHeight="84" id="UZJ-7z-g6q" customClass="ItemSelectCell" customModule="BG_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UZJ-7z-g6q" id="3ob-Zo-Z84">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NaverFloatinBtnImg" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-gx-lx8">
+                                                    <rect key="frame" x="35" y="11" width="62" height="62"/>
+                                                    <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="KGU-Vs-yGV"/>
+                                                        <constraint firstAttribute="width" secondItem="p5e-gx-lx8" secondAttribute="height" multiplier="1:1" id="PqK-W4-vLv"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Nx-BCN">
-                                                    <rect key="frame" x="35" y="11.5" width="379" height="21"/>
+                                                    <rect key="frame" x="121" y="31.5" width="83" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="centerY" secondItem="3ob-Zo-Z84" secondAttribute="centerY" id="beJ-0o-Cme"/>
-                                                <constraint firstAttribute="trailing" secondItem="IeZ-Nx-BCN" secondAttribute="trailing" id="eq3-WB-OhX"/>
-                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="leading" secondItem="3ob-Zo-Z84" secondAttribute="leading" constant="35" id="mjx-sh-IZ4"/>
+                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="centerY" secondItem="p5e-gx-lx8" secondAttribute="centerY" id="2jM-TN-No5"/>
+                                                <constraint firstItem="p5e-gx-lx8" firstAttribute="leading" secondItem="3ob-Zo-Z84" secondAttribute="leading" constant="35" id="CPU-jW-0h8"/>
+                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="leading" secondItem="p5e-gx-lx8" secondAttribute="trailing" constant="24" id="XIS-kP-gpM"/>
+                                                <constraint firstItem="p5e-gx-lx8" firstAttribute="centerY" secondItem="3ob-Zo-Z84" secondAttribute="centerY" id="cey-BN-efp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="itemImageView" destination="p5e-gx-lx8" id="SPt-M6-yxG"/>
                                             <outlet property="itemNameLabel" destination="IeZ-Nx-BCN" id="WN4-jw-w29"/>
                                         </connections>
                                     </tableViewCell>
@@ -512,7 +525,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhS-Cx-8QD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="1511"/>
+            <point key="canvasLocation" x="953.62318840579712" y="1510.7142857142856"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="aWv-16-E9C">
@@ -540,20 +553,24 @@
                                         <rect key="frame" x="25" y="24" width="364" height="93.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JcR-SO-Gwx">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="93.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="93.5"/>
                                                 <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JcR-SO-Gwx" secondAttribute="height" multiplier="1:1" id="PDv-D7-jZx"/>
+                                                    <constraint firstAttribute="width" constant="93.5" id="eTr-OT-NMF"/>
+                                                </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bAd-GH-FfN">
-                                                <rect key="frame" x="115" y="0.0" width="249" height="93.5"/>
+                                                <rect key="frame" x="143.5" y="0.0" width="220.5" height="93.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-my-Edx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="249" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="220.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-Tk-9on">
-                                                        <rect key="frame" x="0.0" y="28.5" width="249" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="28.5" width="220.5" height="28.5"/>
                                                         <color key="tintColor" name="BasePurple"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="온라인 가격비교 바로가기">
@@ -564,7 +581,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T8-e1-UDr">
-                                                        <rect key="frame" x="0.0" y="65" width="249" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="65" width="220.5" height="28.5"/>
                                                         <color key="tintColor" name="BasePurple"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="블로그 리뷰 바로가기">
@@ -987,7 +1004,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="UNM-Ew-oLb"/>
-        <segue reference="fsf-VL-FZR"/>
+        <segue reference="MBN-Ns-O5m"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle.fill" catalog="system" width="128" height="123"/>
@@ -1019,9 +1036,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -14,6 +14,7 @@
 		F146D8DD2AAB48B1009744AF /* ItemSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */; };
 		F146D8DF2AAB4F28009744AF /* ItemSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */; };
 		F146D8E12AAD885C009744AF /* CustomInfoWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */; };
+		F146D8E32AADD9D7009744AF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E22AADD9D7009744AF /* UIColor.swift */; };
 		F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3112A17A753003E8C3C /* CaptureViewController.swift */; };
 		F166C3142A17C91A003E8C3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3132A17C91A003E8C3C /* Utils.swift */; };
 		F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F166C3152A17C975003E8C3C /* yolov5s.mlmodel */; };
@@ -44,6 +45,7 @@
 		F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectViewController.swift; sourceTree = "<group>"; };
 		F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectCell.swift; sourceTree = "<group>"; };
 		F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindowView.swift; sourceTree = "<group>"; };
+		F146D8E22AADD9D7009744AF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F166C3112A17A753003E8C3C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		F166C3132A17C91A003E8C3C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F166C3152A17C975003E8C3C /* yolov5s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov5s.mlmodel; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DD2CCD2A9F1F5C00EE9711 /* UIViewController.swift */,
+				F146D8E22AADD9D7009744AF /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DD2CCE2A9F1F5C00EE9711 /* UIViewController.swift in Sources */,
+				F146D8E32AADD9D7009744AF /* UIColor.swift in Sources */,
 				F166C3142A17C91A003E8C3C /* Utils.swift in Sources */,
 				F1D459D02A20FFF700CDF245 /* SearchResultViewController.swift in Sources */,
 				F18CDA902A17A03F002A3FAC /* ViewController.swift in Sources */,
