@@ -512,9 +512,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhS-Cx-8QD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="1493"/>
+            <point key="canvasLocation" x="955" y="1511"/>
         </scene>
-        <!--지도-->
+        <!--Map View Controller-->
         <scene sceneID="aWv-16-E9C">
             <objects>
                 <viewController id="Caq-nc-GJa" customClass="MapViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,14 +523,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="상품명을 검색하세요." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-eT-siq">
-                                <rect key="frame" x="0.0" y="48" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="Caq-nc-GJa" id="Qdz-Ha-CpM"/>
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-Pv-07C" customClass="NMFNaverMapView">
-                                <rect key="frame" x="0.0" y="104" width="414" height="567.5"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="523.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-Xp-jLt">
@@ -559,6 +559,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="온라인 가격비교 바로가기">
                                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="goTextSearch:" destination="Caq-nc-GJa" eventType="touchUpInside" id="38w-Ov-ojg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T8-e1-UDr">
                                                         <rect key="frame" x="0.0" y="65" width="249" height="28.5"/>
@@ -567,6 +570,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="블로그 리뷰 바로가기">
                                                             <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="goBlogSearch:" destination="Caq-nc-GJa" eventType="touchUpInside" id="M2k-Ik-uKD"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -597,7 +603,7 @@
                             <constraint firstItem="fUf-eT-siq" firstAttribute="top" secondItem="R8E-mh-FRZ" secondAttribute="top" id="zzo-7l-hhF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="지도" image="map.fill" catalog="system" id="Wys-tl-2ud"/>
+                    <navigationItem key="navigationItem" id="Lay-mj-Yrf"/>
                     <connections>
                         <outlet property="itemInfoView" destination="e5e-Xp-jLt" id="YW9-Vy-y6M"/>
                         <outlet property="itemInfoViewBottomConstraint" destination="rcb-gx-EKf" id="Bxh-vX-7fN"/>
@@ -605,11 +611,13 @@
                         <outlet property="mapView" destination="dNw-Pv-07C" id="Y52-5U-z0X"/>
                         <outlet property="searchBar" destination="fUf-eT-siq" id="3jD-0G-qw7"/>
                         <segue destination="ZLH-To-2ho" kind="presentation" identifier="showItemSelect" id="9jL-9c-BKc"/>
+                        <segue destination="9sD-R7-vfc" kind="show" identifier="showSearchResultInMap" id="fsf-VL-FZR"/>
+                        <segue destination="IYj-uy-Xs2" kind="show" identifier="showSearchBlogReviewInMap" id="UNM-Ew-oLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sv-CD-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="742"/>
+            <point key="canvasLocation" x="955.07246376811599" y="741.96428571428567"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="FEp-za-B09">
@@ -880,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiZ-GF-R0a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4598.5507246376819" y="741.96428571428567"/>
+            <point key="canvasLocation" x="4599" y="742"/>
         </scene>
         <!--Blog Review Detail View Controller-->
         <scene sceneID="3Sb-SY-JhG">
@@ -915,7 +923,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doJ-ki-P8M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5503" y="742"/>
+            <point key="canvasLocation" x="5549" y="742"/>
         </scene>
         <!--홈-->
         <scene sceneID="ah0-HK-ZBG">
@@ -950,16 +958,36 @@
                     </tabBar>
                     <connections>
                         <segue destination="k3V-9L-VM7" kind="relationship" relationship="viewControllers" id="sZB-oQ-DR2"/>
-                        <segue destination="Caq-nc-GJa" kind="relationship" relationship="viewControllers" id="Yfh-rf-nAr"/>
+                        <segue destination="rFD-Ru-Afr" kind="relationship" relationship="viewControllers" id="Yfh-rf-nAr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFw-wu-tuZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="-27.455357142857142"/>
         </scene>
+        <!--지도-->
+        <scene sceneID="xWf-u4-WgT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFD-Ru-Afr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="지도" image="map.fill" catalog="system" id="Wys-tl-2ud"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgZ-yf-biT">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Caq-nc-GJa" kind="relationship" relationship="rootViewController" id="Xan-58-tqB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odU-hg-h2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="741.96428571428567"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MBN-Ns-O5m"/>
+        <segue reference="UNM-Ew-oLb"/>
+        <segue reference="fsf-VL-FZR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle.fill" catalog="system" width="128" height="123"/>

@@ -92,9 +92,12 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
     @objc func tapToBack() {
         if let captureViewController = navigationController?.viewControllers.first(where: { $0 is CaptureViewController }) {
             navigationController?.popToViewController(captureViewController, animated: true)
-        } else {
-            let viewController = navigationController?.viewControllers.first(where: { $0 is ViewController })
-            navigationController?.popToViewController(viewController!, animated: true)
+        }
+        if let viewController = navigationController?.viewControllers.first(where: { $0 is ViewController }) {
+            navigationController?.popToViewController(viewController, animated: true)
+        }
+        if let mapViewController = navigationController?.viewControllers.first(where: { $0 is MapViewController }) {
+            navigationController?.popToViewController(mapViewController, animated: true)
         }
     }
     

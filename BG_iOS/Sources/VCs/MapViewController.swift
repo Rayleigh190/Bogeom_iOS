@@ -18,6 +18,11 @@ class MapViewController: UIViewController {
     var itemData: ItemAPIResponse?
     var shopData: ShopAPIResponse?
     var itemID: Int = 0
+    var itemName: String?
+    var enuri_link: String?
+    var danawq_link: String?
+    var naver_link: String?
+    var reviewData: BlogReviewAPIResponse?
     var makers: [NMFMarker] = []
     let infoWindow = NMFInfoWindow()
     
@@ -39,6 +44,54 @@ class MapViewController: UIViewController {
     @IBOutlet weak var itemInfoViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var itemNameLabel: UILabel!
     
+    @IBAction func goTextSearch(_ sender: Any) {
+        let url = Bundle.main.getSecret(name: "TEXT_SEARCH_API_URL")
+        
+        let parameters: Parameters = ["search": itemName!]
+        
+        AF.request(url, method: .get, parameters: parameters).responseDecodable(of: SearchAPIResponse.self)
+        { response in
+            switch response.result {
+            case .success(let successData):
+                print("성공")
+//                print(successData)
+                self.itemName = successData.response.item.itemName
+                self.enuri_link = successData.response.shop.enuri?.list
+                self.danawq_link = successData.response.shop.danawa?.list
+                self.naver_link = successData.response.shop.naver?.list
+                self.performSegue(withIdentifier: "showSearchResultInMap", sender: self)
+            case .failure(let error):
+                print("실패")
+                print(response)
+                print(false, error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func goBlogSearch(_ sender: Any) {
+        
+        let url = Bundle.main.getSecret(name: "Blog_Review_SEARCH_API_URL")
+        
+        let parameters: Parameters = ["search": itemName!]
+        
+        AF.request(url, method: .get, parameters: parameters).responseDecodable(of: BlogReviewAPIResponse.self)
+        { response in
+            switch response.result {
+            case .success(let successData):
+                print("성공")
+//                print(successData)
+                self.reviewData = successData
+                self.performSegue(withIdentifier: "showSearchBlogReviewInMap", sender: self)
+            case .failure(let error):
+                print("실패")
+                print(response)
+                print(false, error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = .black
@@ -50,8 +103,13 @@ class MapViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true) // 뷰 컨트롤러가 나타날 때 숨기기
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true) // 뷰 컨트롤러가 사라질 때 나타내기
         // Stop location tracking when leaving the view controller
         locationManager.delegate = nil
         locationManager.stopUpdatingLocation()
@@ -150,7 +208,7 @@ extension MapViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if CLLocationManager.locationServicesEnabled() {
+        if segue.identifier == "showItemSelect" && CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
 //            print(locationManager.location?.coordinate)
             
@@ -169,6 +227,19 @@ extension MapViewController {
             print("위치 서비스 Off 상태")
         }
         
+        if segue.identifier == "showSearchResultInMap" {
+            let vc = segue.destination as? SearchResultViewController
+            vc?.itemName = itemName
+            vc?.enuri_link = enuri_link
+            vc?.danawa_link = danawq_link
+            vc?.naver_link = naver_link
+        }
+        
+        if segue.identifier == "showSearchBlogReviewInMap" {
+            let vc = segue.destination as? BlogReviewViewController
+            vc?.itemName = itemName
+            vc?.reviewData = reviewData
+        }
         
     }
     
@@ -254,7 +325,7 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
     // 지도를 탭하면 정보 창을 닫음
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-        infoWindow.close()
+//        infoWindow.close()
     }
     
     
@@ -291,6 +362,7 @@ extension MapViewController: ItemSelectVCDelegate {
         
         for item in itemData!.response.items {
             if item.id == itemID {
+                self.itemName = item.itemName
                 itemNameLabel.text = item.itemName
             }
         }
