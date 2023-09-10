@@ -11,6 +11,9 @@
 		F126B1D92AA873140035E499 /* BlogReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1D82AA873140035E499 /* BlogReviewViewController.swift */; };
 		F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */; };
 		F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */; };
+		F146D8DD2AAB48B1009744AF /* ItemSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */; };
+		F146D8DF2AAB4F28009744AF /* ItemSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */; };
+		F146D8E12AAD885C009744AF /* CustomInfoWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */; };
 		F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3112A17A753003E8C3C /* CaptureViewController.swift */; };
 		F166C3142A17C91A003E8C3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3132A17C91A003E8C3C /* Utils.swift */; };
 		F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F166C3152A17C975003E8C3C /* yolov5s.mlmodel */; };
@@ -38,6 +41,9 @@
 		F126B1D82AA873140035E499 /* BlogReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewViewController.swift; sourceTree = "<group>"; };
 		F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewCell.swift; sourceTree = "<group>"; };
 		F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewDetailViewController.swift; sourceTree = "<group>"; };
+		F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectViewController.swift; sourceTree = "<group>"; };
+		F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectCell.swift; sourceTree = "<group>"; };
+		F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindowView.swift; sourceTree = "<group>"; };
 		F166C3112A17A753003E8C3C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		F166C3132A17C91A003E8C3C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F166C3152A17C975003E8C3C /* yolov5s.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = yolov5s.mlmodel; sourceTree = "<group>"; };
@@ -134,6 +140,9 @@
 				F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */,
 				F1772F792A2E0EBD00CE462F /* ChatViewController.swift */,
 				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
+				F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */,
+				F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */,
+				F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -315,8 +324,11 @@
 				F166C31A2A18BE89003E8C3C /* SearchViewController.swift in Sources */,
 				F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */,
 				F166C3182A1871F4003E8C3C /* PreviewView.swift in Sources */,
+				F146D8DF2AAB4F28009744AF /* ItemSelectCell.swift in Sources */,
 				F126B1D92AA873140035E499 /* BlogReviewViewController.swift in Sources */,
 				F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */,
+				F146D8DD2AAB48B1009744AF /* ItemSelectViewController.swift in Sources */,
+				F146D8E12AAD885C009744AF /* CustomInfoWindowView.swift in Sources */,
 				F1A903EB2A4759BA002EBA84 /* MapViewController.swift in Sources */,
 				F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */,
 				F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */,

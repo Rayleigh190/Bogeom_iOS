@@ -81,8 +81,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Stop location tracking when leaving the view controller
+        locationManager.delegate = nil
         locationManager.stopUpdatingLocation()
         hasPerformedSegue = false
+    }
+    deinit {
+        // Ensure that the locationManager is deallocated properly
+        locationManager.delegate = nil
     }
     
     func setupUI() {

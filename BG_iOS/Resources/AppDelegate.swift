@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NMapsMap
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let sleepTimeInSeconds = 0.0
         Thread.sleep(forTimeInterval: sleepTimeInSeconds)
+        NMFAuthManager.shared().clientId = Bundle.main.getSecret(name: "NMFClientId")
+
         return true
     }
 

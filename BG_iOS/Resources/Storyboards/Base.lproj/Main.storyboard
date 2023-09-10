@@ -454,37 +454,162 @@
             </objects>
             <point key="canvasLocation" x="2771.0144927536235" y="-27.455357142857142"/>
         </scene>
-        <!--설정-->
-        <scene sceneID="o39-uD-gT9">
+        <!--Item Select View Controller-->
+        <scene sceneID="aUa-oj-mwc">
             <objects>
-                <viewController id="LhG-Tv-PdS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v9R-md-t5n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController hidesBottomBarWhenPushed="YES" id="ZLH-To-2ho" customClass="ItemSelectViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PnN-mY-6zF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="JeK-B4-MCb"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TEG-dp-xHI">
+                                <rect key="frame" x="0.0" y="68" width="414" height="770"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemSelectCell" id="UZJ-7z-g6q" customClass="ItemSelectCell" customModule="BG_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UZJ-7z-g6q" id="3ob-Zo-Z84">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Nx-BCN">
+                                                    <rect key="frame" x="35" y="11.5" width="379" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="centerY" secondItem="3ob-Zo-Z84" secondAttribute="centerY" id="beJ-0o-Cme"/>
+                                                <constraint firstAttribute="trailing" secondItem="IeZ-Nx-BCN" secondAttribute="trailing" id="eq3-WB-OhX"/>
+                                                <constraint firstItem="IeZ-Nx-BCN" firstAttribute="leading" secondItem="3ob-Zo-Z84" secondAttribute="leading" constant="35" id="mjx-sh-IZ4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemNameLabel" destination="IeZ-Nx-BCN" id="WN4-jw-w29"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZLH-To-2ho" id="q0I-0i-D9M"/>
+                                    <outlet property="delegate" destination="ZLH-To-2ho" id="muI-bI-WFg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4U1-c5-Lgh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TEG-dp-xHI" firstAttribute="top" secondItem="4U1-c5-Lgh" secondAttribute="top" constant="20" id="0kr-CO-xId"/>
+                            <constraint firstItem="TEG-dp-xHI" firstAttribute="leading" secondItem="4U1-c5-Lgh" secondAttribute="leading" id="Jg5-Oz-5Ly"/>
+                            <constraint firstItem="4U1-c5-Lgh" firstAttribute="trailing" secondItem="TEG-dp-xHI" secondAttribute="trailing" id="OOm-Gt-kVi"/>
+                            <constraint firstItem="4U1-c5-Lgh" firstAttribute="bottom" secondItem="TEG-dp-xHI" secondAttribute="bottom" id="nUd-30-aqR"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="FU1-ui-2J5"/>
+                    <connections>
+                        <outlet property="tableView" destination="TEG-dp-xHI" id="bF6-nG-tIU"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PmB-BU-vAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FhS-Cx-8QD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="725"/>
+            <point key="canvasLocation" x="45" y="1493"/>
         </scene>
         <!--지도-->
         <scene sceneID="aWv-16-E9C">
             <objects>
-                <viewController id="Caq-nc-GJa" sceneMemberID="viewController">
+                <viewController id="Caq-nc-GJa" customClass="MapViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KRq-w9-rxs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="상품명을 검색하세요." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUf-eT-siq">
+                                <rect key="frame" x="0.0" y="48" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Caq-nc-GJa" id="Qdz-Ha-CpM"/>
+                                </connections>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-Pv-07C" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="104" width="414" height="567.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5e-Xp-jLt">
+                                <rect key="frame" x="0.0" y="671.5" width="414" height="141.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-Y0-M7W">
+                                        <rect key="frame" x="25" y="24" width="364" height="93.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JcR-SO-Gwx">
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="93.5"/>
+                                                <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="bAd-GH-FfN">
+                                                <rect key="frame" x="115" y="0.0" width="249" height="93.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKZ-my-Edx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="249" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-Tk-9on">
+                                                        <rect key="frame" x="0.0" y="28.5" width="249" height="28.5"/>
+                                                        <color key="tintColor" name="BasePurple"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="온라인 가격비교 바로가기">
+                                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T8-e1-UDr">
+                                                        <rect key="frame" x="0.0" y="65" width="249" height="28.5"/>
+                                                        <color key="tintColor" name="BasePurple"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="블로그 리뷰 바로가기">
+                                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="J5Q-Y0-M7W" firstAttribute="leading" secondItem="e5e-Xp-jLt" secondAttribute="leading" constant="25" id="9qE-CV-dA0"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5Q-Y0-M7W" secondAttribute="trailing" constant="25" id="Q0u-dx-e3t"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5Q-Y0-M7W" secondAttribute="bottom" constant="24" id="SXy-Rr-1da"/>
+                                    <constraint firstItem="J5Q-Y0-M7W" firstAttribute="top" secondItem="e5e-Xp-jLt" secondAttribute="top" constant="24" id="gZy-NK-38Z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R8E-mh-FRZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dNw-Pv-07C" firstAttribute="leading" secondItem="R8E-mh-FRZ" secondAttribute="leading" id="9vP-pm-Wff"/>
+                            <constraint firstItem="dNw-Pv-07C" firstAttribute="top" secondItem="fUf-eT-siq" secondAttribute="bottom" id="MRI-dC-ew7"/>
+                            <constraint firstItem="R8E-mh-FRZ" firstAttribute="trailing" secondItem="e5e-Xp-jLt" secondAttribute="trailing" id="NXk-x4-a5B"/>
+                            <constraint firstItem="R8E-mh-FRZ" firstAttribute="trailing" secondItem="dNw-Pv-07C" secondAttribute="trailing" id="QR7-Hw-yHC"/>
+                            <constraint firstItem="e5e-Xp-jLt" firstAttribute="top" secondItem="dNw-Pv-07C" secondAttribute="bottom" id="YYJ-J2-4ID"/>
+                            <constraint firstItem="fUf-eT-siq" firstAttribute="leading" secondItem="R8E-mh-FRZ" secondAttribute="leading" id="aSf-z9-zOi"/>
+                            <constraint firstItem="e5e-Xp-jLt" firstAttribute="leading" secondItem="R8E-mh-FRZ" secondAttribute="leading" id="q5h-Ej-cUb"/>
+                            <constraint firstItem="R8E-mh-FRZ" firstAttribute="bottom" secondItem="e5e-Xp-jLt" secondAttribute="bottom" id="rcb-gx-EKf"/>
+                            <constraint firstItem="fUf-eT-siq" firstAttribute="centerX" secondItem="R8E-mh-FRZ" secondAttribute="centerX" id="xcw-zt-JMN"/>
+                            <constraint firstItem="fUf-eT-siq" firstAttribute="top" secondItem="R8E-mh-FRZ" secondAttribute="top" id="zzo-7l-hhF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="지도" image="map.fill" catalog="system" id="Wys-tl-2ud"/>
+                    <connections>
+                        <outlet property="itemInfoView" destination="e5e-Xp-jLt" id="YW9-Vy-y6M"/>
+                        <outlet property="itemInfoViewBottomConstraint" destination="rcb-gx-EKf" id="Bxh-vX-7fN"/>
+                        <outlet property="itemNameLabel" destination="ZKZ-my-Edx" id="QOT-Aa-csF"/>
+                        <outlet property="mapView" destination="dNw-Pv-07C" id="Y52-5U-z0X"/>
+                        <outlet property="searchBar" destination="fUf-eT-siq" id="3jD-0G-qw7"/>
+                        <segue destination="ZLH-To-2ho" kind="presentation" identifier="showItemSelect" id="9jL-9c-BKc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sv-CD-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="733"/>
+            <point key="canvasLocation" x="45" y="742"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="FEp-za-B09">
@@ -826,7 +951,6 @@
                     <connections>
                         <segue destination="k3V-9L-VM7" kind="relationship" relationship="viewControllers" id="sZB-oQ-DR2"/>
                         <segue destination="Caq-nc-GJa" kind="relationship" relationship="viewControllers" id="Yfh-rf-nAr"/>
-                        <segue destination="LhG-Tv-PdS" kind="relationship" relationship="viewControllers" id="8kP-Gs-I7J"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFw-wu-tuZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -853,7 +977,6 @@
         <image name="NaverFloatinBtnImg" width="65" height="65"/>
         <image name="NikeAirForce1" width="200" height="113"/>
         <image name="SmallNaverLogoImg" width="23" height="23"/>
-        <image name="gear" catalog="system" width="128" height="122"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>

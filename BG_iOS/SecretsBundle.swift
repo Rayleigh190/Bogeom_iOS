@@ -48,10 +48,23 @@ extension Bundle {
         guard let key = resource["CHAT_URL"] as? String else {fatalError("CHAT_URL error")}
         return key
     }
-    var MAP_URL: String? {
+    var ITEM_SEARCH_API_URL: String? {
         guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
         guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
-        guard let key = resource["MAP_URL"] as? String else {fatalError("MAP_URL error")}
+        guard let key = resource["ITEM_SEARCH_API_URL"] as? String else {fatalError("ITEM_SEARCH_API_URL error")}
+        return key
+    }
+    var SHOP_SEARCH_API_URL: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["SHOP_SEARCH_API_URL"] as? String else {fatalError("SHOP_SEARCH_API_URL error")}
+        return key
+    }
+    
+    var NMFClientId: String? {
+        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["NMFClientId"] as? String else {fatalError("NMFClientId error")}
         return key
     }
     

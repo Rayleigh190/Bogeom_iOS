@@ -79,3 +79,73 @@ struct BlogReviewAPIResponse: Codable {
     let blog: ReviewResponseData
     let error: String?
 }
+
+
+// 특정 문자열이 포함된 상품 검색
+struct ItemInfo: Codable {
+    let id: Int
+    let itemName: String
+    let itemImg: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case itemName = "item_name"
+        case itemImg = "item_img"
+    }
+}
+
+struct ItemResponseData: Codable {
+    let items: [ItemInfo]
+}
+
+struct ItemAPIResponse: Codable {
+    let success: Bool
+    let response: ItemResponseData
+    let error: String?
+}
+
+
+// 주변 상점 상품 건색 모델
+struct MarketItem: Codable {
+    let itemName: String
+    let itemPrice: Int
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case itemName = "item_name"
+        case itemPrice = "item_price"
+        case updatedAt = "updated_at"
+    }
+}
+
+struct MarketCoord: Codable {
+    let lat: Double
+    let lon: Double
+}
+
+struct MarketInfo: Codable {
+    let marketName: String
+    let marketCoords: MarketCoord
+    let marketAddress: String
+    let shopLogo: String?
+    let item: MarketItem
+    
+    enum CodingKeys: String, CodingKey {
+        case marketName = "market_name"
+        case marketCoords = "market_coords"
+        case marketAddress = "market_address"
+        case shopLogo = "shop_logo"
+        case item
+        
+    }
+}
+
+struct ShopResponseData: Codable {
+    let markets: [MarketInfo]
+}
+
+struct ShopAPIResponse: Codable {
+    let success: Bool
+    let response: ShopResponseData
+    let error: String?
+}
