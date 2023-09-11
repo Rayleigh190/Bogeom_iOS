@@ -66,7 +66,12 @@ extension ItemSelectViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemSelectCell", for: indexPath) as? ItemSelectCell else { return UITableViewCell() }
         
         cell.itemNameLabel.text = itemData?.response.items[indexPath.row].itemName
-
+        
+        let baseUrl = Bundle.main.getSecret(name: "BASE_API_URL")
+        if let imageUrl = itemData?.response.items[indexPath.row].itemImg {
+            cell.itemImageView.kf.setImage(with: URL(string: baseUrl+imageUrl))
+        }
+        
         return cell
     }
     

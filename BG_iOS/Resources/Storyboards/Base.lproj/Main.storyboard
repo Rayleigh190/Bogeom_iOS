@@ -476,7 +476,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NaverFloatinBtnImg" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-gx-lx8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-gx-lx8">
                                                     <rect key="frame" x="35" y="11" width="62" height="62"/>
                                                     <color key="backgroundColor" red="0.71372549019999998" green="0.71372549019999998" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -622,6 +622,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lay-mj-Yrf"/>
                     <connections>
+                        <outlet property="itemImageView" destination="JcR-SO-Gwx" id="VSo-iM-3fG"/>
                         <outlet property="itemInfoView" destination="e5e-Xp-jLt" id="YW9-Vy-y6M"/>
                         <outlet property="itemInfoViewBottomConstraint" destination="rcb-gx-EKf" id="Bxh-vX-7fN"/>
                         <outlet property="itemNameLabel" destination="ZKZ-my-Edx" id="QOT-Aa-csF"/>
@@ -778,7 +779,7 @@
         <!--Blog Review View Controller-->
         <scene sceneID="Ikq-p3-s11">
             <objects>
-                <viewController id="IYj-uy-Xs2" customClass="BlogReviewViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="IYj-uy-Xs2" customClass="BlogReviewViewController" customModule="BG_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0eC-rp-1FY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -798,7 +799,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AP3-Ls-CeG">
-                                <rect key="frame" x="17" y="162" width="380" height="651"/>
+                                <rect key="frame" x="17" y="162" width="380" height="700"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="blogReviewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BlogReviewCell" rowHeight="200" id="Whx-4X-vku" customClass="BlogReviewCell" customModule="BG_iOS" customModuleProvider="target">

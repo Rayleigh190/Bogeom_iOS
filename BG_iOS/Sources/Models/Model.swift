@@ -123,7 +123,7 @@ struct MarketCoord: Codable {
     let lon: Double
 }
 
-struct MarketInfo: Codable {
+struct MarketInfo: Codable, Equatable {
     let marketName: String
     let marketCoords: MarketCoord
     let marketAddress: String
@@ -137,6 +137,13 @@ struct MarketInfo: Codable {
         case shopLogo = "shop_logo"
         case item
         
+    }
+    
+    // Implement the Equatable conformance by defining the == operator
+    static func == (lhs: MarketInfo, rhs: MarketInfo) -> Bool {
+        // Define the equality condition based on the properties you want to compare
+        // For example, if you want to compare based on a unique identifier:
+        return lhs.marketName == rhs.marketName
     }
 }
 

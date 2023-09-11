@@ -43,6 +43,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var itemInfoView: UIView!
     @IBOutlet weak var itemInfoViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
     
     @IBAction func goTextSearch(_ sender: Any) {
         let url = Bundle.main.getSecret(name: "TEXT_SEARCH_API_URL")
@@ -154,6 +155,7 @@ extension MapViewController {
         makers = []
         guard let shopList = shopData?.response.markets else {return}
         for shop in shopList {
+            
             let latitude = shop.marketCoords.lat
             let longitude = shop.marketCoords.lon
             let marker = NMFMarker()
@@ -166,8 +168,15 @@ extension MapViewController {
                     if marker.infoWindow == nil {
                         let dataSource = CustomInfoWindowView(shopName: " [\(shop.marketName)]", shopAddress: " \(shop.marketAddress) ", itemPrice: " 가격 : \(shop.item.itemPrice)원", updatedAt: "  갱신일: \(String(shop.item.updatedAt.prefix(10)))")
                         self?.infoWindow.dataSource = dataSource
+                        
+                        // 해당 marker로 카메라 이동
+//                        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: shop.marketCoords.lat, lng: shop.marketCoords.lon))
+//                        cameraUpdate.animation = .easeIn
+//                        self!.mapView.mapView.moveCamera(cameraUpdate)
+                        
                         // 현재 마커에 정보 창이 열려있지 않을 경우 엶
                         self?.infoWindow.open(with: marker)
+                        
                     } else {
                         // 이미 현재 마커에 정보 창이 열려있을 경우 닫음
                         self?.infoWindow.close()
@@ -175,6 +184,7 @@ extension MapViewController {
                 }
                 return true
             }
+            
         }
         
     }
@@ -364,6 +374,13 @@ extension MapViewController: ItemSelectVCDelegate {
             if item.id == itemID {
                 self.itemName = item.itemName
                 itemNameLabel.text = item.itemName
+                
+                let baseUrl = Bundle.main.getSecret(name: "BASE_API_URL")
+                
+                if let imageUrl = item.itemImg {
+                    itemImageView.kf.setImage(with: URL(string: baseUrl+imageUrl))
+                }
+                
             }
         }
 
