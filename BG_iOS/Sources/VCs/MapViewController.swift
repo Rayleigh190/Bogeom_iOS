@@ -25,6 +25,7 @@ class MapViewController: UIViewController {
     var reviewData: BlogReviewAPIResponse?
     var makers: [NMFMarker] = []
     let infoWindow = NMFInfoWindow()
+    var cameraChangeReason: Int = 0
     
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -149,10 +150,6 @@ extension MapViewController {
     }
     
     func setMapMarker() {
-        for maker in makers {
-            maker.mapView = nil
-        }
-        makers = []
         guard let shopList = shopData?.response.markets else {return}
         for shop in shopList {
             
@@ -170,9 +167,9 @@ extension MapViewController {
                         self?.infoWindow.dataSource = dataSource
                         
                         // 해당 marker로 카메라 이동
-//                        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: shop.marketCoords.lat, lng: shop.marketCoords.lon))
-//                        cameraUpdate.animation = .easeIn
-//                        self!.mapView.mapView.moveCamera(cameraUpdate)
+                        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: shop.marketCoords.lat, lng: shop.marketCoords.lon))
+                        cameraUpdate.animation = .easeIn
+                        self!.mapView.mapView.moveCamera(cameraUpdate)
                         
                         // 현재 마커에 정보 창이 열려있지 않을 경우 엶
                         self?.infoWindow.open(with: marker)
@@ -338,23 +335,32 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
 //        infoWindow.close()
     }
     
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+//        print("카메라 변경 - reason: \(reason)")
+        cameraChangeReason = reason
+    }
+    
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-         // mapView에 들어있는 정보
-         let latitude = mapView.cameraPosition.target.lat
-         let longitude = mapView.cameraPosition.target.lng
-        print("지도 움직임종료")
-//        for maker in makers {
-//            maker.mapView = nil
-//        }
-//        makers = []
-        shopSearch(id: itemID, lat: latitude, lon: longitude) { success in
-            if success {
-                self.setMapMarker()
-            } else {
-                print("fail")
-            }
+        if cameraChangeReason == -1 {
+            // mapView에 들어있는 정보
+            let latitude = mapView.cameraPosition.target.lat
+            let longitude = mapView.cameraPosition.target.lng
+           print("지도 움직임종료")
+           
+           shopSearch(id: itemID, lat: latitude, lon: longitude) { success in
+               if success {
+                   for maker in self.makers {
+                       maker.mapView = nil
+                   }
+                   self.makers = []
+                   self.setMapMarker()
+               } else {
+                   print("fail")
+               }
+           }
         }
+         
      }
 }
 
@@ -379,6 +385,8 @@ extension MapViewController: ItemSelectVCDelegate {
                 
                 if let imageUrl = item.itemImg {
                     itemImageView.kf.setImage(with: URL(string: baseUrl+imageUrl))
+                } else {
+                    itemImageView.kf.setImage(with: URL(string: "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"))
                 }
                 
             }

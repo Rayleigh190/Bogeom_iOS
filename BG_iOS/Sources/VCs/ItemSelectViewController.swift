@@ -70,6 +70,8 @@ extension ItemSelectViewController: UITableViewDelegate, UITableViewDataSource {
         let baseUrl = Bundle.main.getSecret(name: "BASE_API_URL")
         if let imageUrl = itemData?.response.items[indexPath.row].itemImg {
             cell.itemImageView.kf.setImage(with: URL(string: baseUrl+imageUrl))
+        } else {
+            cell.itemImageView.kf.setImage(with: URL(string: "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"))
         }
         
         return cell
