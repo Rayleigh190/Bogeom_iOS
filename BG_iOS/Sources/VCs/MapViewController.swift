@@ -38,6 +38,8 @@ class MapViewController: UIViewController {
     
     var userLat: Double?
     var userLon: Double?
+    var mapViewCenterLat: Double?
+    var mapViewCenterLon: Double?
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: NMFNaverMapView!
@@ -222,8 +224,8 @@ extension MapViewController {
             if segue.identifier == "showItemSelect" {
                 let vc = segue.destination as? ItemSelectViewController
                 vc?.itemData = itemData
-                vc?.userLat = self.userLat
-                vc?.userLon = self.userLon
+                vc?.userLat = self.mapViewCenterLat
+                vc?.userLon = self.mapViewCenterLon
                 vc?.itemSelectVCDelegate = self
             }
             if let sheet = segue.destination.sheetPresentationController {
@@ -346,6 +348,8 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
             // mapView에 들어있는 정보
             let latitude = mapView.cameraPosition.target.lat
             let longitude = mapView.cameraPosition.target.lng
+            mapViewCenterLat = latitude
+            mapViewCenterLon = longitude
            print("지도 움직임종료")
            
            shopSearch(id: itemID, lat: latitude, lon: longitude) { success in
@@ -370,6 +374,10 @@ extension MapViewController: ItemSelectVCDelegate {
         print("데이터 받음 \(shopData)")
         self.shopData = shopData
         self.itemID = itemID
+        for maker in self.makers {
+            maker.mapView = nil
+        }
+        self.makers = []
         setMapMarker()
         // itemInfoView를 올림
         itemInfoViewBottomConstraint.constant = 0
