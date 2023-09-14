@@ -363,6 +363,12 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
                    print("fail")
                }
            }
+        } else {
+            // 사람이 움직이지 않았을때도 지도 중앙 좌표 업데이트
+            let latitude = mapView.cameraPosition.target.lat
+            let longitude = mapView.cameraPosition.target.lng
+            mapViewCenterLat = latitude
+            mapViewCenterLon = longitude
         }
          
      }
