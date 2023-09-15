@@ -188,6 +188,7 @@ private extension ViewController {
             case .success(let successData):
                 print("실시간 인기 검색 상품 성공")
 //                print(successData)
+                self.hotItemNameList = []
                 for item in successData.response.items {
                     self.hotItemNameList.append(item.itemName)
                 }

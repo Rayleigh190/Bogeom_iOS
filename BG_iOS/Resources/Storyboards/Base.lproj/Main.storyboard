@@ -508,7 +508,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-Nx-BCN">
-                                                    <rect key="frame" x="121" y="31.5" width="85" height="21"/>
+                                                    <rect key="frame" x="121" y="31.5" width="283" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -519,6 +519,7 @@
                                                 <constraint firstItem="p5e-gx-lx8" firstAttribute="leading" secondItem="3ob-Zo-Z84" secondAttribute="leading" constant="35" id="CPU-jW-0h8"/>
                                                 <constraint firstItem="IeZ-Nx-BCN" firstAttribute="leading" secondItem="p5e-gx-lx8" secondAttribute="trailing" constant="24" id="XIS-kP-gpM"/>
                                                 <constraint firstItem="p5e-gx-lx8" firstAttribute="centerY" secondItem="3ob-Zo-Z84" secondAttribute="centerY" id="cey-BN-efp"/>
+                                                <constraint firstAttribute="trailing" secondItem="IeZ-Nx-BCN" secondAttribute="trailing" constant="10" id="eVt-Ve-pfI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
