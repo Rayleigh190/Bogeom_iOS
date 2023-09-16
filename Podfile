@@ -8,5 +8,6 @@ target 'BG_iOS' do
   # Pods for BG_iOS
   pod 'Alamofire'
   pod 'Kingfisher', '~> 7.0'
+  pod 'NMapsMap', '3.17.0'
 
 end

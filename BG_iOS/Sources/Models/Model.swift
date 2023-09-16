@@ -7,37 +7,160 @@
 
 import Foundation
 
-struct itemModel: Codable{
-    
-    let itemInfo: itemInfo
-    let itemReview: itemReview
-    let itemOnlinePrice: [itemOnlinePrice]
+
+struct ShopLink: Codable {
+    let list: String
+}
+
+struct ShopInfo: Codable {
+    let enuri: ShopLink?
+    let danawa: ShopLink?
+    let naver: ShopLink?
+}
+
+struct SearchItemInfo: Codable {
+    let itemName: String
     
     enum CodingKeys: String, CodingKey {
-        case itemInfo
-        case itemReview
-        case itemOnlinePrice
+        case itemName = "item_name"
     }
 }
-struct itemInfo: Codable {
-    let itemId: Int, itemName: String, itemImg: String, detailImg: String
+
+struct SearchResponseData: Codable {
+    let item: SearchItemInfo
+    let shop: ShopInfo
 }
-struct itemReview: Codable {
-    var reviewRate: Int, totalScent:Int, totalClean:Int, totalStimulation:Int, totalSolidity:Int, totalAfterfeel:Int, totalSpicy: Int, totalAmount: Int, totalTaste: Int, totalSugar: Int
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.reviewRate = (try? container.decode(Int.self, forKey: .reviewRate)) ?? 0
-        self.totalScent = (try? container.decode(Int.self, forKey: .totalScent)) ?? 0
-        self.totalClean = (try? container.decode(Int.self, forKey: .totalClean)) ?? 0
-        self.totalStimulation = (try? container.decode(Int.self, forKey: .totalStimulation)) ?? 0
-        self.totalSolidity = (try? container.decode(Int.self, forKey: .totalSolidity)) ?? 0
-        self.totalAfterfeel = (try? container.decode(Int.self, forKey: .totalAfterfeel)) ?? 0
-        self.totalSpicy = (try? container.decode(Int.self, forKey: .totalSpicy)) ?? 0
-        self.totalAmount = (try? container.decode(Int.self, forKey: .totalAmount)) ?? 0
-        self.totalTaste = (try? container.decode(Int.self, forKey: .totalTaste)) ?? 0
-        self.totalSugar = (try? container.decode(Int.self, forKey: .totalSugar)) ?? 0
+
+struct SearchAPIResponse: Codable {
+    let success: Bool
+    let response: SearchResponseData
+    let error: String?
+}
+
+
+// 인기 검색 상품 모델
+struct HotItem: Codable {
+    let itemName: String
+    let itemSearchCount: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case itemName = "item_name"
+        case itemSearchCount = "item_search_count"
     }
 }
-struct itemOnlinePrice: Codable {
-    let marketName: String, marketLogo: String, marketPrice: Int, marketLink: String, deliverFee: Int
+
+struct HotItemResponseData: Codable {
+    let items: [HotItem]
+}
+
+struct HotItemAPIResponse: Codable {
+    let success: Bool
+    let response: HotItemResponseData
+    let error: String?
+}
+
+
+// 블로그 리뷰 검색 모델
+struct BlogReview: Codable {
+    let title: String
+    let link: String
+    let description: String
+    let bloggername: String
+    let bloggerlink: String
+    let postdate: String
+}
+
+struct ReviewResponseData: Codable {
+    let reviews: [BlogReview]
+}
+
+struct BlogReviewAPIResponse: Codable {
+    let success: Bool
+    let blog: ReviewResponseData
+    let error: String?
+}
+
+
+// 특정 문자열이 포함된 상품 검색
+struct ItemInfo: Codable {
+    let id: Int
+    let itemName: String
+    let itemImg: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case itemName = "item_name"
+        case itemImg = "item_img"
+    }
+}
+
+struct ItemResponseData: Codable {
+    let items: [ItemInfo]
+}
+
+struct ItemAPIResponse: Codable {
+    let success: Bool
+    let response: ItemResponseData
+    let error: String?
+}
+
+
+// 주변 상점 상품 건색 모델
+struct MarketItem: Codable {
+    let itemName: String
+    let itemPrice: Int
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case itemName = "item_name"
+        case itemPrice = "item_price"
+        case updatedAt = "updated_at"
+    }
+}
+
+struct MarketCoord: Codable {
+    let lat: Double
+    let lon: Double
+}
+
+struct MarketInfo: Codable, Equatable {
+    let marketName: String
+    let marketCoords: MarketCoord
+    let marketAddress: String
+    let shopLogo: String?
+    let item: MarketItem
+    
+    enum CodingKeys: String, CodingKey {
+        case marketName = "market_name"
+        case marketCoords = "market_coords"
+        case marketAddress = "market_address"
+        case shopLogo = "shop_logo"
+        case item
+        
+    }
+    
+    // Implement the Equatable conformance by defining the == operator
+    static func == (lhs: MarketInfo, rhs: MarketInfo) -> Bool {
+        // Define the equality condition based on the properties you want to compare
+        // For example, if you want to compare based on a unique identifier:
+        return lhs.marketName == rhs.marketName
+    }
+}
+
+struct ShopResponseData: Codable {
+    let markets: [MarketInfo]
+}
+
+struct ShopAPIResponse: Codable {
+    let success: Bool
+    let response: ShopResponseData
+    let error: String?
+}
+
+
+// 블로그 리뷰 요약 모델
+struct GptResponse: Codable {
+    let success: Bool
+    let result: String
+    let error: String?
 }
