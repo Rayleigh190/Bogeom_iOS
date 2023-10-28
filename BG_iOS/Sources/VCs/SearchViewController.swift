@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
     var userLat: Double?
     var userLon: Double?
     
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imgView: UIImageView!
     
     var cropImage: UIImage?
@@ -66,6 +68,8 @@ class SearchViewController: UIViewController {
                 print("실패")
                 print(response)
                 print(false, error.localizedDescription)
+                self.progressIndicator.isHidden = true
+                self.infoLabel.text = "검색 중 오류가 발생했습니다.\n네트워크 연결을 확인해 주세요."
             }
         }
 

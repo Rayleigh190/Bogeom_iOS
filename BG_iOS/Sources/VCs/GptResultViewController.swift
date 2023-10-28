@@ -46,6 +46,11 @@ class GptResultViewController: UIViewController {
                 print("실패")
                 print(response)
                 print(false, error.localizedDescription)
+                self.titleLabel.text = "블로그 리뷰를 요약하는데"
+                self.subTitleLabel.text = "오류가 발생했어요!"
+                self.activityIndicator.stopAnimating()
+                self.resultLable.text = "요약할 수 없는 블로그입니다. 현재는 네이버 블로그만 요약 기능을 제공합니다."
+                self.resultLable.isHidden = false
             }
         }
     }
