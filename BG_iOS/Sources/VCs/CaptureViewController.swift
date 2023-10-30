@@ -297,7 +297,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
                 let topLabelObservation = objectObservation.labels[0]
                 
                 // Rotate the bounding box into screen orientation
-                let boundingBox = CGRect(origin: CGPoint(x:1.0-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height, y:objectObservation.boundingBox.origin.x), size: CGSize(width:objectObservation.boundingBox.size.height,height:objectObservation.boundingBox.size.width))
+                let boundingBox = CGRect(origin: CGPoint(x:(1-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height)*0.9, y:objectObservation.boundingBox.origin.x*0.65), size: CGSize(width:objectObservation.boundingBox.size.height*1.5,height:objectObservation.boundingBox.size.width*1.5))
             
                 objectBounds = VNImageRectForNormalizedRect(boundingBox, Int(bufferSize.width ), Int(bufferSize.height))
                 

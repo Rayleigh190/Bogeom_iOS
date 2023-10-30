@@ -513,11 +513,16 @@
 				DEVELOPMENT_TEAM = 3GP97WXHSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BG_iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "보검";
+				INFOPLIST_KEY_NSCameraUsageDescription = "보검 uses the camera to take photos";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "검색 중인 상점 위치를 파악하기 위해 사용자의 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "검색 중인 상점 위치를 파악하기 위해 사용자의 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "보검 saves captured photos your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -543,11 +548,16 @@
 				DEVELOPMENT_TEAM = 3GP97WXHSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BG_iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "보검";
+				INFOPLIST_KEY_NSCameraUsageDescription = "보검 uses the camera to take photos";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "검색 중인 상점 위치를 파악하기 위해 사용자의 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "검색 중인 상점 위치를 파악하기 위해 사용자의 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "보검 saves captured photos your photo library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
