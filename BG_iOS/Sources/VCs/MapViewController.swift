@@ -10,13 +10,14 @@ import NMapsMap
 import Alamofire
 
 protocol ItemSelectVCDelegate {
-    func dismissItemSelectVC(shopData: ShopAPIResponse, itemID: Int)
+    func dismissItemSelectVC(shopData: ShopAPIResponse, itemID: Int, isConfirm: Bool)
 }
 
 class MapViewController: UIViewController {
     
     var itemData: ItemAPIResponse?
     var shopData: ShopAPIResponse?
+    var isConfirm: Bool? // 해당 지역에 등록된 상품이 없다는 알림에 대한 확인 눌렀을시 true
     var itemID: Int = 0
     var itemName: String?
     var enuri_link: String?
@@ -344,7 +345,7 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
     
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        if cameraChangeReason == -1 {
+        if cameraChangeReason == -1 || cameraChangeReason == 0 {
             // mapView에 들어있는 정보
             let latitude = mapView.cameraPosition.target.lat
             let longitude = mapView.cameraPosition.target.lng
@@ -376,10 +377,11 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
 
 extension MapViewController: ItemSelectVCDelegate {
     
-    func dismissItemSelectVC(shopData: ShopAPIResponse, itemID: Int) {
+    func dismissItemSelectVC(shopData: ShopAPIResponse, itemID: Int, isConfirm: Bool) {
         print("데이터 받음 \(shopData)")
         self.shopData = shopData
         self.itemID = itemID
+        self.isConfirm = isConfirm
         for maker in self.makers {
             maker.mapView = nil
         }
@@ -404,6 +406,13 @@ extension MapViewController: ItemSelectVCDelegate {
                 }
                 
             }
+        }
+        
+        if isConfirm {
+            // 전남대로 카메라 이동
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 35.17794 , lng: 126.91168 ))
+            cameraUpdate.animation = .easeIn
+            mapView.mapView.moveCamera(cameraUpdate)
         }
 
     }

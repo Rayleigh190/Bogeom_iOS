@@ -83,9 +83,30 @@ extension ItemSelectViewController: UITableViewDelegate, UITableViewDataSource {
             if success {
                 if self.shopData?.response.markets.count == 0 {
                     print("주변에 해당 상품 없음. 알림 띄우기")
+                    // 1. 알람 인스턴스 생성
+                    let alert = UIAlertController(title:"알림", message: "현재 지역에 해당 상품이 등록있지 않습니다.\n전남대 부근으로 이동하겠습니까?", preferredStyle: .alert)
+
+                    // 2. 액션 생성
+                    let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+                        // 지도 카메라를 전남대 근처로 이동
+                        self.itemSelectVCDelegate?.dismissItemSelectVC(shopData: self.shopData!, itemID: itemID!, isConfirm: true)
+                        self.dismiss(animated: true)
+                    }
+                    let cancleAction = UIAlertAction(title: "취소", style: .destructive) { _ in
+                        // 창 내림
+                        self.dismiss(animated: true)
+                    }
+
+                    // 3. 알람에 액션 추가
+                    alert.addAction(cancleAction)
+                    alert.addAction(okAction)
+
+                    // 4. 화면에 표현
+                    self.present(alert, animated: true)
+                } else {
+                    self.itemSelectVCDelegate?.dismissItemSelectVC(shopData: self.shopData!, itemID: itemID!, isConfirm: false)
+                    self.dismiss(animated: true)
                 }
-                self.itemSelectVCDelegate?.dismissItemSelectVC(shopData: self.shopData!, itemID: itemID!)
-                self.dismiss(animated: true)
             } else {
                 print("fail")
             }
