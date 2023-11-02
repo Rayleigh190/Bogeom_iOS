@@ -345,7 +345,7 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
     
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        if cameraChangeReason == -1 || cameraChangeReason == 0 {
+        if cameraChangeReason == -1 {
             // mapView에 들어있는 정보
             let latitude = mapView.cameraPosition.target.lat
             let longitude = mapView.cameraPosition.target.lng
