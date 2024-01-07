@@ -1,14 +1,14 @@
 ![title](https://github.com/Rayleigh190/Bogeom_iOS/assets/86937253/d644299a-db22-4f51-89e7-7a6ef350ea69)
 # 🔍 보검, 보다 간편한 검색
-- [Description](#📖-Description)   
-- [Function](#🕹️-Function)   
-- [Dependent Libraries](#🧰-Dependent-Libraries) 
+- [Description](#-description)   
+- [Function](#-function)   
+- [Dependent Libraries](#-dependent-libraries) 
 ## 📖 Description
 **프로젝트명:** OCR과 ChatGPT를 활용한 간편 상품 검색 플랫폼<br>
 **팀구성:** iOS(본인), BE(@Starlight258, @eunsung)  
 **프로젝트 기간:** 2023.03 ~ 2023.08 (6개월)<br>  
 오프라인 상점에서 상품의 리뷰 검색과 온라인 가격비교를 편리하게 하기 위해 시작된 프로젝트입니다. 보검 서비스를 이용하면 가격표 촬영 한 번으로 온라인 가격 비교와 리뷰를 확인할 수 있습니다.
-## 🕹️ Function
+## 🕹 Function
 - 가격표 촬영으로 상품을 검색할 수 있습니다.
 - 상품의 네이버 블로그 리뷰를 바로 볼 수 있습니다.
 - 내 주변 상점의 상품을 검색할 수 있습니다.
