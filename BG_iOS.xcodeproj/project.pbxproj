@@ -117,8 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				F1DD2CCC2A9F1F4700EE9711 /* Extensions */,
-				F1E615032A8BBC5F00B3E5AA /* Classes */,
 				F11FC6AB2A762E6100E353F4 /* Models */,
+				F17F0D9A2B5285400002323B /* Cells */,
+				F17F0D992B5284CD0002323B /* Views */,
 				F11FC6AA2A762E3300E353F4 /* VCs */,
 			);
 			path = Sources;
@@ -141,12 +142,9 @@
 				F166C3192A18BE89003E8C3C /* SearchViewController.swift */,
 				F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */,
 				F126B1D82AA873140035E499 /* BlogReviewViewController.swift */,
-				F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */,
 				F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */,
 				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
-				F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */,
 				F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */,
-				F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */,
 				F146D8E42AADE537009744AF /* GptResultViewController.swift */,
 			);
 			path = VCs;
@@ -166,6 +164,24 @@
 				F12A58212AB3224C00BB31A1 /* chab.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F17F0D992B5284CD0002323B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
+				F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F17F0D9A2B5285400002323B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */,
+				F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F18CDA7F2A17A03F002A3FAC = {
@@ -205,14 +221,6 @@
 				F146D8E22AADD9D7009744AF /* UIColor.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		F1E615032A8BBC5F00B3E5AA /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,7 +441,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "보검";
 				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -492,7 +500,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "보검";
 				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -510,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3GP97WXHSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BG_iOS/Info.plist;
@@ -525,7 +533,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -548,7 +556,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3GP97WXHSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BG_iOS/Info.plist;
@@ -563,7 +571,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

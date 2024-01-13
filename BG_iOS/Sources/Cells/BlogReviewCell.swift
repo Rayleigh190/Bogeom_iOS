@@ -39,7 +39,7 @@ class BlogReviewCell: UITableViewCell {
         contentView.layer.shadowRadius = 5
        
        // cornerRadius 설정
-       containerView.layer.cornerRadius = 10 // 원하는 값으로 설정하세요
+       containerView.layer.cornerRadius = 10
        containerView.clipsToBounds = true
     }
 

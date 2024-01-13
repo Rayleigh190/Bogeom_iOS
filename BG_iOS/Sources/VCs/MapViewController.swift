@@ -115,12 +115,11 @@ class MapViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true) // 뷰 컨트롤러가 사라질 때 나타내기
-        // Stop location tracking when leaving the view controller
         locationManager.delegate = nil
         locationManager.stopUpdatingLocation()
     }
+    
     deinit {
-        // Ensure that the locationManager is deallocated properly
         locationManager.delegate = nil
     }
     
@@ -322,7 +321,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // the most recent location update is at the end of the array.
         let location: CLLocation = locations[locations.count - 1]
         let longtitude: CLLocationDegrees = location.coordinate.longitude
         let latitude:CLLocationDegrees = location.coordinate.latitude

@@ -125,8 +125,6 @@ private extension ViewController {
         for case let myStackView as UIStackView in hotItemStackView.arrangedSubviews {
             if myStackView != hotItemStackView.arrangedSubviews.last {
                 if let label = myStackView.subviews[1] as? UILabel {
-                    // Update the label text
-//                    print(hotItemNameList)
                     label.text = hotItemNameList[count]
                     count += 1
                 }
@@ -155,7 +153,6 @@ private extension ViewController {
         for view in shopSelectStackView.arrangedSubviews {
             if let btn = view as? UIButton {
                 if btn == sender {
-                    // If the current button is the button that called this function
                     btn.isSelected = true
 //                    btn.backgroundColor = UIColor.blue
                     
@@ -171,7 +168,6 @@ private extension ViewController {
                         btn.backgroundColor = UIColor.init(hexCode: "68C91C")
                     }
                 } else {
-                    // If it is not the button that called this function
                     btn.isSelected = false
                     btn.backgroundColor = UIColor.systemBackground
                 }
@@ -187,12 +183,10 @@ private extension ViewController {
             switch response.result {
             case .success(let successData):
                 print("실시간 인기 검색 상품 성공")
-//                print(successData)
                 self.hotItemNameList = []
                 for item in successData.response.items {
                     self.hotItemNameList.append(item.itemName)
                 }
-//                print(self.hotItemNameList)
                 self.hotItemStackUpdate()
             case .failure(let error):
                 print("실시간 인기 검색 상품 실패")
@@ -213,7 +207,6 @@ private extension ViewController {
             switch response.result {
             case .success(let successData):
                 print("성공")
-//                print(successData)
                 self.itemName = successData.response.item.itemName
                 self.enuri_link = successData.response.shop.enuri?.list
                 self.danawq_link = successData.response.shop.danawa?.list

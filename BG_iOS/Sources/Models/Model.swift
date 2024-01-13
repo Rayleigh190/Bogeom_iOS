@@ -139,10 +139,7 @@ struct MarketInfo: Codable, Equatable {
         
     }
     
-    // Implement the Equatable conformance by defining the == operator
     static func == (lhs: MarketInfo, rhs: MarketInfo) -> Bool {
-        // Define the equality condition based on the properties you want to compare
-        // For example, if you want to compare based on a unique identifier:
         return lhs.marketName == rhs.marketName
     }
 }

@@ -80,13 +80,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Stop location tracking when leaving the view controller
+        // 뷰 컨트롤러를 나갈 때 위치 추적 중지
         locationManager.delegate = nil
         locationManager.stopUpdatingLocation()
         hasPerformedSegue = false
     }
+    
     deinit {
-        // Ensure that the locationManager is deallocated properly
+        // locationManager 할당 해제
         locationManager.delegate = nil
     }
     
@@ -172,7 +173,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             print(error)
         }
         
-        // Add photo output
+        // photo output 추가
         photoOutput.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
         if captureSession.canAddOutput(photoOutput) {
             captureSession.addOutput(photoOutput)
@@ -194,7 +195,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         } else {
-            print("Could not add video data output to the session")
+            print("세션에 비디오 데이터 output을 추가할 수 없습니다.")
             captureSession.commitConfiguration()
             return
         }
@@ -221,9 +222,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         
         let scale = fmax(xScale, yScale)
     
-        // rotate the layer into screen orientation and scale and mirror
         detectionLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: scale, y: -scale))
-        // center the layer
         detectionLayer.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
     }
     
@@ -245,7 +244,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             })
             self.requests = [objectRecognition]
         } catch let error as NSError {
-            print("Model loading went wrong: \(error)")
+            print("Model loading이 잘못됨: \(error)")
         }
     }
     
@@ -286,17 +285,16 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     func drawResults(_ result: VNRecognizedObjectObservation) {
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        detectionLayer.sublayers = nil // Clear previous detections from detectionLayer
+        detectionLayer.sublayers = nil // detectorLayer에서 이전 감지 지우기
 //        inferenceTimeLayer.sublayers = nil
         
         let objectObservation = result
-        // Detection with highest confidence
+        // highest confidence로 감지
 //        print(objectObservation.labels.count)
         if !isCaptured {
             if objectObservation.labels.count > 0 {
                 let topLabelObservation = objectObservation.labels[0]
                 
-                // Rotate the bounding box into screen orientation
                 let boundingBox = CGRect(origin: CGPoint(x:(1-objectObservation.boundingBox.origin.y-objectObservation.boundingBox.size.height)*0.9, y:objectObservation.boundingBox.origin.x*0.65), size: CGSize(width:objectObservation.boundingBox.size.height*1.5,height:objectObservation.boundingBox.size.width*1.5))
             
                 objectBounds = VNImageRectForNormalizedRect(boundingBox, Int(bufferSize.width ), Int(bufferSize.height))
@@ -311,15 +309,11 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             }
         }
         
-//        print("아아아")
-        // Crop the captured image based on the detection results
+        // 감지 결과에 따라 캡처된 이미지 자르기
         if let cgImage = image?.cgImage,
            let croppedCGImage = cgImage.cropping(to: objectBounds) {
             let croppedImage = UIImage(cgImage: croppedCGImage)
-//            print("구구구")
-            // Perform the segue with the cropped image as sender
             if isCaptured && !hasPerformedSegue {
-//                print("타타타")
                 hasPerformedSegue = true
                 performSegue(withIdentifier: "showSearch", sender: croppedImage)
                 isCaptured = false
@@ -330,7 +324,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         
     }
         
-    // Clean up capture setup
+    // 캡처 설정 지우기
 //    func teardownAVCapture() {
 //        previewLayer.removeFromSuperlayer()
 //        previewLayer = nil
@@ -360,7 +354,7 @@ extension CaptureViewController: AVCapturePhotoCaptureDelegate {
 //        guard let cgImageSource = CGImageSourceCreateWithData(imageData as CFData, nil) else {print("실패"); return}
 //        guard let cgImage = CGImageSourceCreateImageAtIndex(cgImageSource, 0, nil) else {return}
         
-        // Perform object detection on the captured image
+        // 캡처된 이미지에서 객체 감지 수행
         performObjectDetection(image!)
         isCaptured = true
 //        self.savePhotoLibrary(image: image!)
@@ -408,7 +402,7 @@ extension CaptureViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // the most recent location update is at the end of the array.
+        // 가장 최근의 위치는 배열의 끝에 있음
         let location: CLLocation = locations[locations.count - 1]
         let longtitude: CLLocationDegrees = location.coordinate.longitude
         let latitude:CLLocationDegrees = location.coordinate.latitude
