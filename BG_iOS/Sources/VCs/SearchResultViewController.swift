@@ -96,9 +96,6 @@ class SearchResultViewController: UIViewController, WKUIDelegate {
         if let viewController = navigationController?.viewControllers.first(where: { $0 is ViewController }) {
             navigationController?.popToViewController(viewController, animated: true)
         }
-        if let mapViewController = navigationController?.viewControllers.first(where: { $0 is MapViewController }) {
-            navigationController?.popToViewController(mapViewController, animated: true)
-        }
     }
     
 

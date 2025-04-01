@@ -12,9 +12,6 @@
 		F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */; };
 		F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */; };
 		F12A58222AB3224C00BB31A1 /* chab.otf in Resources */ = {isa = PBXBuildFile; fileRef = F12A58212AB3224C00BB31A1 /* chab.otf */; };
-		F146D8DD2AAB48B1009744AF /* ItemSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */; };
-		F146D8DF2AAB4F28009744AF /* ItemSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */; };
-		F146D8E12AAD885C009744AF /* CustomInfoWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */; };
 		F146D8E32AADD9D7009744AF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E22AADD9D7009744AF /* UIColor.swift */; };
 		F146D8E52AADE537009744AF /* GptResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146D8E42AADE537009744AF /* GptResultViewController.swift */; };
 		F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166C3112A17A753003E8C3C /* CaptureViewController.swift */; };
@@ -28,7 +25,6 @@
 		F18CDA932A17A03F002A3FAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18CDA912A17A03F002A3FAC /* Main.storyboard */; };
 		F18CDA952A17A040002A3FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18CDA942A17A040002A3FAC /* Assets.xcassets */; };
 		F18CDA982A17A040002A3FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18CDA962A17A040002A3FAC /* LaunchScreen.storyboard */; };
-		F1A903EB2A4759BA002EBA84 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A903EA2A4759BA002EBA84 /* MapViewController.swift */; };
 		F1D459D02A20FFF700CDF245 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */; };
 		F1D459D22A21D30D00CDF245 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1D459D12A21D30D00CDF245 /* Secrets.plist */; };
 		F1D459D42A21D4CB00CDF245 /* SecretsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */; };
@@ -44,9 +40,6 @@
 		F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewCell.swift; sourceTree = "<group>"; };
 		F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogReviewDetailViewController.swift; sourceTree = "<group>"; };
 		F12A58212AB3224C00BB31A1 /* chab.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chab.otf; sourceTree = "<group>"; };
-		F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectViewController.swift; sourceTree = "<group>"; };
-		F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectCell.swift; sourceTree = "<group>"; };
-		F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInfoWindowView.swift; sourceTree = "<group>"; };
 		F146D8E22AADD9D7009744AF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F146D8E42AADE537009744AF /* GptResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GptResultViewController.swift; sourceTree = "<group>"; };
 		F166C3112A17A753003E8C3C /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +55,6 @@
 		F18CDA942A17A040002A3FAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18CDA972A17A040002A3FAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18CDA992A17A040002A3FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1A903EA2A4759BA002EBA84 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		F1D459D12A21D30D00CDF245 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		F1D459D32A21D4CB00CDF245 /* SecretsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsBundle.swift; sourceTree = "<group>"; };
@@ -143,8 +135,6 @@
 				F1D459CF2A20FFF700CDF245 /* SearchResultViewController.swift */,
 				F126B1D82AA873140035E499 /* BlogReviewViewController.swift */,
 				F126B1DC2AA9BAE10035E499 /* BlogReviewDetailViewController.swift */,
-				F1A903EA2A4759BA002EBA84 /* MapViewController.swift */,
-				F146D8DC2AAB48B1009744AF /* ItemSelectViewController.swift */,
 				F146D8E42AADE537009744AF /* GptResultViewController.swift */,
 			);
 			path = VCs;
@@ -170,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				F166C3172A1871F4003E8C3C /* PreviewView.swift */,
-				F146D8E02AAD885C009744AF /* CustomInfoWindowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				F126B1DA2AA873B80035E499 /* BlogReviewCell.swift */,
-				F146D8DE2AAB4F28009744AF /* ItemSelectCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -349,12 +337,8 @@
 				F166C31A2A18BE89003E8C3C /* SearchViewController.swift in Sources */,
 				F126B1DB2AA873B80035E499 /* BlogReviewCell.swift in Sources */,
 				F166C3182A1871F4003E8C3C /* PreviewView.swift in Sources */,
-				F146D8DF2AAB4F28009744AF /* ItemSelectCell.swift in Sources */,
 				F126B1D92AA873140035E499 /* BlogReviewViewController.swift in Sources */,
 				F166C3122A17A753003E8C3C /* CaptureViewController.swift in Sources */,
-				F146D8DD2AAB48B1009744AF /* ItemSelectViewController.swift in Sources */,
-				F146D8E12AAD885C009744AF /* CustomInfoWindowView.swift in Sources */,
-				F1A903EB2A4759BA002EBA84 /* MapViewController.swift in Sources */,
 				F126B1DD2AA9BAE10035E499 /* BlogReviewDetailViewController.swift in Sources */,
 				F18CDA8C2A17A03F002A3FAC /* AppDelegate.swift in Sources */,
 				F166C3162A17C975003E8C3C /* yolov5s.mlmodel in Sources */,
