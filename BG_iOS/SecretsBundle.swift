@@ -27,14 +27,6 @@ extension Bundle {
         guard let key = resource["CAMERA_SEARCH_API_URL"] as? String else {fatalError("CAMERA_SEARCH_API_URL error")}
         return key
     }
-    
-    
-    var HOT_ITEM_API_URL: String? {
-        guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
-        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
-        guard let key = resource["HOT_ITEM_API_URL"] as? String else {fatalError("HOT_ITEM_API_URL error")}
-        return key
-    }
     var TEXT_SEARCH_API_URL: String? {
         guard let file = self.path(forResource: "Secrets", ofType: "plist") else{return ""}
         guard let resource = NSDictionary(contentsOfFile: file) else { return "" }

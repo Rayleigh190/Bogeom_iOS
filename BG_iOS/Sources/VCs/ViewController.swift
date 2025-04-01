@@ -16,12 +16,6 @@ class ViewController: UIViewController {
     var naver_link: String?
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var hotItemStackView: UIStackView!
-    @IBOutlet weak var adImageView: UIImageView!
-    @IBOutlet weak var adBottomSectionView: UIView!
-    @IBOutlet weak var adButton: UIButton!
-    @IBOutlet weak var adStackView: UIStackView!
-    @IBOutlet weak var adParentStackView: UIStackView!
     @IBOutlet weak var shopSelectStackView: UIStackView!
     
     @IBOutlet weak var naverSelectButton: UIButton!
@@ -34,8 +28,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         searchBar.searchTextField.backgroundColor = UIColor.white
-        setupViews()
-        setupGestureRecognizers()
         
         // 앱 설치 후 한 번만 실행
         if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
@@ -49,7 +41,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true) // 뷰 컨트롤러가 나타날 때 숨기기
         changeStatusBarBgColor(bgColor: UIColor(named: "BaseYellow"))
-        getHotItemInfo()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,52 +87,6 @@ private extension ViewController {
         danawaSelectButton.layer.masksToBounds = true
         
     }
-    
-    func setupViews() {
-        hotItemStackView.backgroundColor = .systemBackground
-        hotItemStackView.layer.shadowColor = UIColor.black.cgColor
-        hotItemStackView.layer.shadowOpacity = 0.2
-        hotItemStackView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        hotItemStackView.layer.shadowRadius = 5
-        hotItemStackView.layer.masksToBounds = false
-        hotItemStackView.layer.cornerRadius = 15
-        
-        adStackView.backgroundColor = .systemBackground
-        adStackView.layer.masksToBounds = true
-        adStackView.layer.cornerRadius = 15
-        
-        adParentStackView.layer.shadowColor = UIColor.black.cgColor
-        adParentStackView.layer.shadowOpacity = 0.2
-        adParentStackView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        adParentStackView.layer.shadowRadius = 5
-        adParentStackView.layer.masksToBounds = false
-        
-        adButton.layer.cornerRadius = 20
-        
-    }
-    
-    func hotItemStackUpdate() {
-        var count = 0
-        for case let myStackView as UIStackView in hotItemStackView.arrangedSubviews {
-            if myStackView != hotItemStackView.arrangedSubviews.last {
-                if let label = myStackView.subviews[1] as? UILabel {
-                    label.text = hotItemNameList[count]
-                    count += 1
-                }
-            }
-        }
-        
-    }
-    
-    func setupGestureRecognizers() {
-        for case let myStackView as UIStackView in hotItemStackView.arrangedSubviews {
-            if let label = myStackView.subviews.first(where: { $0 is UILabel }) as? UILabel {
-                let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
-                label.isUserInteractionEnabled = true
-                label.addGestureRecognizer(tapGestureRecognizer)
-            }
-        }
-    }
 
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         if let label = sender.view as? UILabel {
@@ -171,27 +116,6 @@ private extension ViewController {
                     btn.isSelected = false
                     btn.backgroundColor = UIColor.systemBackground
                 }
-            }
-        }
-    }
-    
-    func getHotItemInfo() {
-        let url = Bundle.main.getSecret(name: "HOT_ITEM_API_URL")
-        
-        AF.request(url, method: .get).responseDecodable(of: HotItemAPIResponse.self)
-        { response in
-            switch response.result {
-            case .success(let successData):
-                print("실시간 인기 검색 상품 성공")
-                self.hotItemNameList = []
-                for item in successData.response.items {
-                    self.hotItemNameList.append(item.itemName)
-                }
-                self.hotItemStackUpdate()
-            case .failure(let error):
-                print("실시간 인기 검색 상품 실패")
-                print(response)
-                print(false, error.localizedDescription)
             }
         }
     }
